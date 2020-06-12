@@ -1,0 +1,4 @@
+PATIENT ETHNICITY AND RACE ine compietion of inis section is opcionai.
+Is your patient of Hispanic or Latino origin or descent? Yes O NO
+Please mark one or more to indicate your patient's race:
+.

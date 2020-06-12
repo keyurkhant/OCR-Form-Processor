@@ -2,7 +2,7 @@ import numpy as np
 import sys
 import cv2 as cv
 
-src = cv.imread('image11.png') 
+src = cv.imread('aab.png') 
 
 if src is None:
     print ('Error opening image: ' + src)

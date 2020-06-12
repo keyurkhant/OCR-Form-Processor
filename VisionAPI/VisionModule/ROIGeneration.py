@@ -40,7 +40,11 @@ def getROI(pdf):
 	imgList.append(imgCrop7)
 
 	# Form 2 (Only One Region)
-	imgCrop8 = img2[685:1800,90:1600]
+	imgCrop8 = img2[700:1795,125:1585]
 	imgList.append(imgCrop8)
+
+	# Form 2 (Only right Part)
+	imgCrop9 = img2[700:1800,870:1570]
+	imgList.append(imgCrop9)
 	
 	return imgList
