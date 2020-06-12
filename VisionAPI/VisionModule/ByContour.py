@@ -1,7 +1,5 @@
 import cv2
 
-img = cv2.imread('Original/sampleform.png')
-
 BLUR = 21
 CANNY_THRESH_1 = 10
 CANNY_THRESH_2 = 200
@@ -9,7 +7,7 @@ MASK_DILATE_ITER = 10
 MASK_ERODE_ITER = 10
 MASK_COLOR = (0.0,0.0,0.0) # In BGR format\
 
-img = cv2.imread('Original/sampleform.png')
+img = cv2.imread('Original/removedLine.jpg')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 #gray1 = gray.copy()
 
