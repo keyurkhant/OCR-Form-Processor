@@ -8,11 +8,11 @@
 
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets\css\bootstrap.css">
-    <link rel="stylesheet" href="assets\css\style.css">
+    <link rel="stylesheet" href="static\css\bootstrap.css">
+    <link rel="stylesheet" href="static\css\style.css">
 
 
-    <title>Crest Science</title>
+    <title>Exact Science</title>
 </head>
 
 <body>
@@ -40,31 +40,31 @@
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Healthcare Organization Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="hconame" value="{{dict1['hconame']}}" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Provider Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="provider" value="{{dict1['provider']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">NPI # :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="npi" value="{{dict1['npi']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Location Address Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="address" value="{{dict1['address']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">City, State, Zip :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="city" value="{{dict1['city']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Phone Number :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="phone" value="{{dict1['phone']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Secure Fax Number :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" type="text" name="fax" value="{{dict1['fax']}}"/>
                                 </div>
 
                                 <div class="form-field-wrap mt-4">
@@ -96,7 +96,7 @@
                                 </div>
                                 <div class="form-field-wrap mt-3 text-md-right text-left">
                                     <p class="signeture1 text-left float-left mr-2">
-                                        <img src="assets/img/Signeture.png" /> Ordering Provider Signature
+                                        <img src="static/images/Signeture.png" /> Ordering Provider Signature
                                     </p>
                                     <p class="date1 mt-2">
                                         <input class="input-group-append form-control" type="date" /> Date of Order
@@ -151,13 +151,13 @@
 
                                         <div class="d-block ">
                                             <input class="" type="radio" id="aa" name="aa" value="">
-                                            <label class="mb-2" for="aa">Male</label>
+                                            <label class="mb-2" for="aa">Home</label>
 
                                             <input class="" type="radio" id="bb" name="bb" value="">
-                                            <label class="mb-2" for="bb">Male</label>
+                                            <label class="mb-2" for="bb">Mobile</label>
 
                                             <input class="" type="radio" id="cc" name="cc" value="">
-                                            <label class="mb-2" for="cc">Male</label>
+                                            <label class="mb-2" for="cc">Work</label>
                                         </div>
                                     </div>
 
@@ -205,7 +205,7 @@
                                 </div>
 
                                 <div class="form-field-wrap input-group">
-                                    <label class="">Please mark one or more to indicate your patient’s race: :</label>
+                                    <label class="">Please mark one or more to indicate your patient’s race :</label>
                                     <div class="form-field-wrap">
                                         <div class="input-group mb-0 d-inline">
                                             <input class="mr-1" type="checkbox" id="select11-white" name="White" value="">
@@ -220,7 +220,7 @@
                                             <input class="mr-1" type="checkbox" id="select11-asian" name="asian" value="">
                                             <label class="mb-2" for="select11-asian">Asian</label>
                                         </div>
-
+                                        <br>
                                         <div class="input-group-append mb-0 d-inline">
                                             <input class="mr-1" type="checkbox" id="select11-nativehawaiian" name="select11-nativehawaiian" value="">
                                             <label class="mb-2" for="select11-nativehawaiian">Native Hawaiian or other Pacific Islander</label>
@@ -240,9 +240,10 @@
                                 Patient Insurance/Billing Information
                             </h3>
                             <!-- small character comment is remaining-->
-                            <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
-                            </p>
+                            
                             <form>
+                                <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
+                            </p>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Does patient wish Exact Sciences to bill their insurance? :</label>
                                     <div class="form-field-wrap">
@@ -343,7 +344,7 @@
 
                                 <div class="form-field-wrap mt-3 text-md-right text-left">
                                     <p class="signeture1 text-left float-left mr-2">
-                                        <img src="assets/img/Signeture.png" /> Patient Signature:
+                                        <img src="static/images/Signeture.png" /> Patient Signature:
                                     </p>
                                     <p class="date1 mt-2">
                                         <input class="input-group-append form-control" type="date" /> Date
@@ -362,10 +363,10 @@
     </div>
 
     <!--JavaScript -->
-    <script src="assets\js\jquery-3.5.1.slim.min.js" type="text/javascript"></script>
-    <script src="assets\js\popper.min.js" type="text/javascript"></script>
-    <script src="assets\js\bootstrap.js" type="text/javascript"></script>
-    <script src="assets\js\app.js" type="text/javascript"></script>
+    <script src="static\js\jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+    <script src="static\js\popper.min.js" type="text/javascript"></script>
+    <script src="static\js\bootstrap.js" type="text/javascript"></script>
+    <script src="static\js\app.js" type="text/javascript"></script>
 </body>
 
 </html>
