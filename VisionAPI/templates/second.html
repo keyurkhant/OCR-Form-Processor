@@ -8,13 +8,15 @@
 
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/blowup.js"></script>
+    <script src="./static/js/imagemagnifier.js"></script>
 
 
     <title>Exact Science</title>
 </head>
-
 <body>
     <div class="main-wrap">
         <!-- Wrap -->
@@ -23,48 +25,58 @@
                 <div class="row">
 
                     <!-- Left Side -->
-                    <div class="Left-panel col-12 col-md-4 col-sm-12">
-                        savan
+                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
+                        <img src = "static/temp_storage/{{filename}}1.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
                     </div>
-
+                    <script>
+                    // Initiate zoom effect:
+                        imageZoom("img1", "right");
+                    </script>
                     <!-- Right Side -->
-                    <div class="right-pannel col-12 col-md-8 col-sm-12">
+<!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
                         <!-- new divison ......................-->
-                        <div class="right-panel-box">
-                            <h3>
-                                Provider & Order Information
-                            </h3>
-                            <form class="">
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">
+                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
+                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                            <center>
+                                <h3>COLOGUARD ORDER<br>REQUISITION FORM</h3>
+                            </center>
+
+
+                            <form class="part1" id="part1" action="/part1" method="post">
+                                <h3>
+                                    Provider & Order Information
+                                </h3>
                                 <div class="form-field-wrap">
                                     <h4 class="box-title">Provider Information</h4>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Healthcare Organization Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="hconame" value="{{dict1['hconame']}}" />
+                                    <input class="input-group-append form-control" type="text" name="hconame" value="{{dict1['form1']['hconame']}}" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Provider Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="provider" value="{{dict1['provider']}}" />
+                                    <input class="input-group-append form-control" type="text" name="provider" value="{{dict1['form1']['provider']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">NPI # :</label>
-                                    <input class="input-group-append form-control" type="text" name="npi" value="{{dict1['npi']}}" />
+                                    <input class="input-group-append form-control" type="text" name="npi" value="{{dict1['form1']['pr_npi']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Location Address Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="address" value="{{dict1['address']}}" />
+                                    <input class="input-group-append form-control" type="text" name="address" value="{{dict1['form1']['pr_address']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">City, State, Zip :</label>
-                                    <input class="input-group-append form-control" type="text" name="city" value="{{dict1['city']}}" />
+                                    <input class="input-group-append form-control" type="text" name="city" value="{{dict1['form1']['pr_city']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Phone Number :</label>
-                                    <input class="input-group-append form-control" type="text" name="phone" value="{{dict1['phone']}}" />
+                                    <input class="input-group-append form-control" type="text" name="phone" value="{{dict1['form1']['pr_phone']}}"/>
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Secure Fax Number :</label>
-                                    <input class="input-group-append form-control" type="text" name="fax" value="{{dict1['fax']}}" />
+                                    <input class="input-group-append form-control" type="text" name="fax" value="{{dict1['form1']['pr_fax']}}"/>
                                 </div>
 
                                 <div class="form-field-wrap mt-4">
@@ -78,13 +90,13 @@
                                 <div class="form-field-wrap">
                                     <h6 class="mb-1 d-block">ICD-10 Code:</h6>
                                     <div class="input-group mb-0">
-                                        <input class="mr-2" type="radio" id="select1-icd" name="icd-10" value="">
+                                        <input class="mr-2" type="radio" id="select1-icd" name="icd-10" value="" checked>
                                         <label class="mb-2" for="select1-icd">Z12.11 and Z12.12 (Encounter for screening for malignant neoplasm of colon [Z12.11] and rectum [Z12.12])</label>
                                     </div>
                                     <div class="input-group mb-0">
                                         <input class="mr-2" type="radio" id="select2-icd" name="icd-10" value="">
                                         <label class="mb-2" for="select2-icd">Other(s)</label>
-                                        <input class="input-group-append form-control" type="text" />
+                                        <input class="input-group-append form-control" type="text" name="icdother" value="{{dict1['form1']['icdother']}}" />
                                     </div>
 
                                 </div>
@@ -94,37 +106,35 @@
                                         required by HIPAA. I authorize Exact Sciences Laboratories to obtain reimbursement for Cologuard and to directly contact and collect additional samples from the patient as appropriate.
                                     </p>
                                 </div>
-                                <div class="form-field-wrap mt-3 text-md-right text-left">
-                                    <p class="signeture1 text-left float-left mr-2">
-                                        <img src="static/images/Signeture.png" /> Ordering Provider Signature
-                                    </p>
+                                <div class="form-field-wrap mt-3 text-md-left text-left">
                                     <p class="date1 mt-2">
-                                        <input class="input-group-append form-control" type="date" /> Date of Order
+                                        Date of Order:<br>
+                                        <input class="input-group-append form-control" name="orderdate" value="{{dict1['form1']['orderdate']}}" type="date" />
                                     </p>
                                 </div>
-                            </form>
+                <!--            </form> -->
 
                             <!-- Savan Code -->
                             <!-- new division.......-->
-                            <h3>
-                                Patient Demographics
-                            </h3>
-                            <form>
+                                <h3>
+                                    Patient Demographics
+                                </h3>
+                <!--            <form class="part2" id="part2" action="/part2" method="post">   -->
                                 <div class="form-field-wrap input-group">
                                     <label class="">Provider ID/MRN :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="pr_id" value="{{dict1['form1']['pr_id']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">First Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_fname" value="{{dict1['form1']['p_fname']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Last Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_lname" value="{{dict1['form1']['p_lname']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">DOB (mm/dd/yyyy) :</label>
-                                    <input class="input-group-append form-control" type="date" />
+                                    <input class="input-group-append form-control" name="p_dob" value="{{dict1['form1']['p_dob']}}" type="date" />
                                 </div>
 
                                 <!-- ? do not come in single line -->
@@ -132,7 +142,7 @@
                                     <label class="">Sex :</label>
                                     <div class="form-field-wrap">
                                         <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select-sex-male" name="sex" value="">
+                                            <input class="mr-1" type="radio" id="select-sex-male" name="p_sex" value="{{dict1['form1']['p_sex']}}">
                                             <label class="mb-2" for="select-sex-male">Male</label>
                                         </div>
                                         <div class="input-group-append mb-0 d-inline">
@@ -147,7 +157,7 @@
                                 <div class="form-field-wrap input-group">
                                     <label class="">Phone Number (Required) :</label>
                                     <div>
-                                        <input class="form-control" type="text" />
+                                        <input class="form-control" type="text" name="p_phone" value="{{dict1['form1']['p_phone']}}" />
 
                                         <div class="d-block ">
                                             <input class="" type="radio" id="aa" name="aa" value="">
@@ -165,26 +175,26 @@
 
                                 <div class="form-field-wrap input-group">
                                     <label class="">Language Prefrence (optional) :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_lang" value="{{dict1['form1']['p_lang']}}" type="text" />
                                 </div>
 
                                 <div class="form-field-wrap input-group">
                                     <label class="">Shipping Address :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_saddress" value="{{dict1['form1']['p_saddress']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">City, State, Zip :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_scity" value="{{dict1['form1']['p_scity']}}" type="text" />
                                 </div>
 
                                 <!-- same as billing address-->
                                 <div class="form-field-wrap input-group">
                                     <label class="">Billing Address :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_baddress" value="{{dict1['form1']['p_baddress']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">City, State, Zip:</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="p_bcity" value="{{dict1['form1']['p_bcity']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap mt-4">
                                     <h4 class="box-title">PATIENT ETHNICITY AND RACE (Optional)</h4>
@@ -228,11 +238,11 @@
 
                                         <div class="input-group-append mb-0 d-inline">
                                             <input class="mr-1" type="checkbox" id="select11-americanindian" name="americanindian" value="">
-                                            <label class="mb-2" for="select11-americanindian">Amrerican Indian or Alaska Native</label>
+                                            <label class="mb-2" for="select11-americanindian">American Indian or Alaska Native</label>
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+               <!--             </form>   -->
                             <!-- completed one division -->
 
                             <!-- new division .............-->
@@ -240,8 +250,9 @@
                                 Patient Insurance/Billing Information
                             </h3>
                             <!-- small character comment is remaining-->
-
                             <form>
+                              <!--            <form style="margin-bottom: 15px;" class="part3" id="part3" action="/part3" method="post">   -->
+
                                 <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
                                 </p>
                                 <div class="form-field-wrap input-group">
@@ -259,11 +270,11 @@
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Policyholder Name :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="poly_name" value="{{dict1['form1']['poly_name']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Policyholder DOB :</label>
-                                    <input class="input-group-append form-control" type="date" />
+                                    <input class="input-group-append form-control" name="poly_dob" value="{{dict1['form1']['poly_dob']}}" type="date" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Relationship to patient :</label>
@@ -284,7 +295,7 @@
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Primary Insurance Carrier :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="pi_carrier" value="{{dict1['form1']['pi_carrier']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Type :</label>
@@ -313,23 +324,23 @@
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Claims Submission Address :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="cs_address" value="{{dict1['form1']['cs_address']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Subscriber ID/Policy Number :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="poly_number" value="{{dict1['form1']['poly_number']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Group Number :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="groupno" value="{{dict1['form1']['groupno']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Plan :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="plan" value="{{dict1['form1']['plan']}}" type="text" />
                                 </div>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Prior-Authentication Code (if available) :</label>
-                                    <input class="input-group-append form-control" type="text" />
+                                    <input class="input-group-append form-control" name="pauth_code" value="{{dict1['form1']['pauth_code']}}" type="text" />
                                 </div>
 
                                 <div class="form-field-wrap mt-4">
@@ -342,12 +353,10 @@
                                 </div>
                                 <!-- input signature image-->
 
-                                <div class="form-field-wrap mt-3 text-md-right text-left">
-                                    <p class="signeture1 text-left float-left mr-2">
-                                        <img src="static/images/Signeture.png" /> Patient Signature:
-                                    </p>
+                                <div class="form-field-wrap mt-3 text-md-left text-left">
                                     <p class="date1 mt-2">
-                                        <input class="input-group-append form-control" type="date" /> Date
+                                        Date:<br>
+                                        <input class="input-group-append form-control" name="finaldate" value="{{dict1['form1']['finaldate']}}" type="date" />
                                     </p>
                                 </div>
 
@@ -355,8 +364,13 @@
 
                             <!-- Savan Code End -->
                         </div>
-                    </div>
+                <!--    </div> -->
 
+                        <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
+                            <input class="mr-1" type="checkbox" id="esign" name="esign" value="">
+                            <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
+                        </div>
+                        <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
                 </div>
             </div>
         </div>
@@ -368,5 +382,13 @@
     <script src="static/js/bootstrap.js" type="text/javascript"></script>
     <script src="static/js/app.js" type="text/javascript"></script>
 </body>
+<script type="text/javascript">
+    submitForms = function(){
+        document.getElementById("part1").submit();
+        document.getElementById("part2").submit();
+        document.getElementById("part3").submit();
+    }
+</script>
+
 
 </html>

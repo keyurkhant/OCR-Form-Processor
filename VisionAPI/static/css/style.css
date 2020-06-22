@@ -77,6 +77,11 @@ p.lead,
 INTRO
 -----------------------------------------------*/
 
+input[type="file"]{
+    display: none;
+}
+
+
 .intro {
     display: table;
     text-align: center;
@@ -122,10 +127,22 @@ INTRO
     padding: 8px 15px;
 }
 
+.right-panel-box form h3 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 0px;
+    background: #333333;
+    color: #ffffff;
+    padding: 8px 15px;
+}
+
+/*
 .right-panel-box form {
     border: 1px solid #dddddd;
     padding: 15px;
 }
+*/
 
 .right-panel-box .box-title {
     background: #f2f2f2;
