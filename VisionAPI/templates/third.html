@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static\css\bootstrap.css">
+    <link rel="stylesheet" href="static\css\style.css"> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="lib/blowup.js"></script>
+    <script src="./static/js/imagemagnifier.js"></script>
+
+
+    <title>Exact Science</title>
+</head>
+<body>
+    <div class="main-wrap">
+        <!-- Wrap -->
+        <div class="wraper">
+            <div class="container-fluid">
+                <div class="row">
+
+                    <!-- Left Side -->
+                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
+                        <img src = "static/temp_storage/sampleform.pdf2.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
+                    </div>
+                    <!-- Right Side -->
+<!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
+                        <!-- new divison ......................-->
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">    
+                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
+                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                            <center>
+                                <h3>COLOGUARD PROCEDURE<br>INFORMATION </h3>
+                            </center>
+                            <form class="part2" id="part2" action="/part2" method="post">
+                                <h3>
+                                    Information from Cologuard Provider
+                                </h3>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Cologuard Order Number :</label>
+                                    <input class="input-group-append form-control" type="text" name="colo_number" value="{{dict1['form2']['colo_number']}}" />
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Date Received by ES Labs  :</label>
+                                    <input class="input-group-append form-control" type="text" name="esdate" value="{{dict1['form2']['esdate']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Health Organization Name :</label>
+                                    <input class="input-group-append form-control" type="text" name="honame" value="{{dict1['form2']['honame']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Provider Name :</label>
+                                    <input class="input-group-append form-control" type="text" name="pr2_name" value="{{dict1['form2']['pr2_name']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Provider NPI # :</label>
+                                    <input class="input-group-append form-control" type="text" name="pr2_npi" value="{{dict1['form2']['pr2_npi']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">ICD-10 Code :</label>
+                                    <input class="input-group-append form-control" type="text" name="icd2" value="{{dict1['form2']['icd2']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Patient Name :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_name" value="{{dict1['form2']['p2_name']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Patient Date of Birth :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_dob" value="{{dict1['form2']['p2_dob']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Patient Sex :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_sex" value="{{dict1['form2']['p2_sex']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Patient Phone Number :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_phone" value="{{dict1['form2']['p2_phone']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Patient Shipping Address :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_saddress" value="{{dict1['form2']['p2_saddress']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Secure Fax Number :</label>
+                                    <input class="input-group-append form-control" type="text" name="p2_fax" value="{{dict1['form2']['p2_fax']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Health Care Provider Signature :</label>
+                                    <input class="input-group-append form-control" type="text" name="hcpsign" value="{{dict1['form2']['hcpsign']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Insurance Type :</label>
+                                    <input class="input-group-append form-control" type="text" name="itype" value="{{dict1['form2']['itype']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Insurance Carrier Name :</label>
+                                    <input class="input-group-append form-control" type="text" name="carrier" value="{{dict1['form2']['carrier']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Subscriber ID :</label>
+                                    <input class="input-group-append form-control" type="text" name="sub_id" value="{{dict1['form2']['sub_id']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Group Number :</label>
+                                    <input class="input-group-append form-control" type="text" name="group" value="{{dict1['form2']['group']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Policy Owner/Holder Name :</label>
+                                    <input class="input-group-append form-control" type="text" name="poly_owner" value="{{dict1['form2']['poly_owner']}}"/>
+                                </div>
+                                <div class="form-field-wrap input-group">
+                                    <label class="">Policy Owner/Holder Date of Birth :</label>
+                                    <input class="input-group-append form-control" type="text" name="poly_owner_dob" value="{{dict1['form2']['poly_owner_dob']}}"/>
+                                </div>
+                            </form>
+
+                            <!-- Savan Code End -->
+                        </div>
+                <!--    </div> -->
+                        
+                        <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
+                            <input class="mr-1" type="checkbox" id="esign" name="esign" value="">
+                            <label class="mb-2" for="esign">Please mark right only if all data extracted are as same as hard copy for both form.</label>
+                        </div>
+                        <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JavaScript -->
+    <script src="static\js\jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+    <script src="static\js\popper.min.js" type="text/javascript"></script>
+    <script src="static\js\bootstrap.js" type="text/javascript"></script>
+    <script src="static\js\app.js" type="text/javascript"></script>
+</body>
+<script type="text/javascript">
+    submitForms = function(){
+        document.getElementById("part2").submit();
+    }
+</script>
+
+</html>
