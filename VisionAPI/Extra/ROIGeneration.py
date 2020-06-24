@@ -2,13 +2,12 @@ import cv2 as cv
 import numpy as np
 from pdf2image import convert_from_bytes
 
-def getROI(pdf):
-	images = convert_from_bytes(pdf)
+def getROI():
+	
+	img = cv.imread('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/Untitled-3.jpg')
+	
+	img = img[69:2269,0:1654]
 
-	img = images[0]
-	img = np.array(img)
-	img2 = images[1]
-	img2 = np.array(img2)
 	imgList = []
 
 	#Provider Information Form 1
@@ -40,7 +39,12 @@ def getROI(pdf):
 	imgList.append(imgCrop7)
 
 	# Form 2 (Only One Region)
-	imgCrop8 = img2[685:1800,90:1600]
-	imgList.append(imgCrop8)
+	#imgCrop8 = img2[685:1800,90:1600]
+	#imgList.append(imgCrop8)
 	
-	return imgList
+	for img in imgList:
+		cv.imshow('Window', img)
+		cv.waitKey(0)
+		cv.destroyAllWindows()
+
+getROI()

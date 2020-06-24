@@ -8,13 +8,10 @@
 
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static\css\bootstrap.css">
-    <link rel="stylesheet" href="static\css\style.css"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript" src="lib/blowup.js"></script>
-    <script src="./static/js/imagemagnifier.js"></script>
-
-
+    
     <title>Exact Science</title>
 </head>
 <body>
@@ -23,27 +20,15 @@
         <div class="wraper">
             <div class="container-fluid">
                 <div class="row">
-
-                    <!-- Left Side -->
-                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
-                        <img src = "static/temp_storage/{{filename}}1.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
-                    </div>
-                    <script>
-                    // Initiate zoom effect:
-                        imageZoom("img1", "right");
-                    </script>
-                    <!-- Right Side -->
-<!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
-                        <!-- new divison ......................-->
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">    
-                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
-                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden; padding-left: 15px; margin-left: 220px; margin-top: 15px;">    
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" style="height: 67px; width: 150px; position: absolute;">
+                            <img src="{{ url_for('static', filename='images/colo.jpeg') }}" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
                             <center>
                                 <h3>COLOGUARD ORDER<br>REQUISITION FORM</h3>
                             </center>
 
                             
-                            <form class="part1" id="part1" action="/part1" method="post">
+                            <form class="update1" id="update1" action="/update1" method="post">
                                 <h3>
                                     Provider & Order Information
                                 </h3>
@@ -455,11 +440,11 @@
                         </div>
                 <!--    </div> -->
                         
-                        <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
-                            <input class="mr-1" form="part1" type="checkbox" id="esign" name="esign" value="Yes">
+                        <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 220px; padding-top: 6px;">
+                            <input class="mr-1" form="update1" type="checkbox" id="esign" name="esign" value="Yes">
                             <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
                         </div>
-                        <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
+                        <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-left: 930px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
                 </div>
             </div>
         </div>
@@ -473,9 +458,8 @@
 </body>
 <script type="text/javascript">
     submitForms = function(){
-        document.getElementById("part1").submit();
+        document.getElementById("update1").submit();
     }
 </script>
-
 
 </html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Simple Data Table</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="static\css\style.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</head>
+<body>
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                
+                <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>Patient Details</h2></div>
+                    </div>
+                </div>
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Patient ID </th>
+                            <th>Patient Name </th>
+                            <th>Provider Name </th>
+                            <th>Provider NPI # </th>
+                            <th>Date of Entry </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    {% for user in users %}
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>{{user["form1"]["pt_id1"]}}</td>
+                                    <td>{{user["form1"]["pt_fname1"]}} {{user["form1"]["pt_lname1"]}}</td>
+                                    <td>{{user["form1"]["provider_name1"]}}</td>
+                                    <td>{{user["form1"]["pr_npi1"]}}</td>
+                                    <td>{{user["metadata"]["formentry_time"]}}</td>
+                                    <td>
+                                        <a href="/view/{{user['_id']}}" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
+                                        <a href="/edit/{{user['_id']}}" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                        <a href="/delete/{{user['_id']}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                                        <a href="/download/{{user['_id']}}" class="download" title="Download" data-toggle="tooltip"><i class="material-icons">get_app</i></a>
+                                    </td>
+                                </tr>        
+                            </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>        
+    </div>     
+</body>
+</html>

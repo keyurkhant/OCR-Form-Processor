@@ -1,0 +1,121 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+}
+
+.main-wrap {
+    display: block;
+    min-height: 1px;
+}
+
+/*----------------------------------------------
+TYPOGRAPHY
+-----------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+.page-title {
+    font-size: 44px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+p.large,
+.large {
+    font-size: 16px;
+}
+
+p.lead,
+.lead {
+    font-size: 18px;
+}
+
+
+.right-panel-box {
+    display: block;
+}
+
+.right-panel-box>h3 {
+    margin-bottom: 0px;
+    margin-top: 15px;
+    display: block;
+    background: #333333;
+    color: #ffffff;
+    padding: 8px 15px;
+}
+
+.right-panel-box form h3 {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    display: block;
+    margin-left: 0px;
+    background: #333333;
+    color: #ffffff;
+    padding: 8px 15px;
+}
+
+/*
+.right-panel-box form {
+    border: 1px solid #dddddd;
+    padding: 15px;
+}
+*/
+
+.right-panel-box .box-title {
+    background: #f2f2f2;
+    display: block;
+    padding: 8px 15px;
+}
+
+.right-panel-box form .form-field-wrap {
+    margin-bottom: 10px;
+}
+
+.right-panel-box form .form-field-wrap label {
+    padding-right: 15px;
+    padding-top: 5px;
+    vertical-align: middle;
+}
+
+.right-panel-box form .form-field-wrap input {
+    vertical-align: middle;
+}
+
+.right-panel-box form .signeture1 {
+    max-width: 200px;
+    display: inline-block;
+}
+
+.right-panel-box form .signeture1 img {
+    width: 100%;
+    height: auto;
+}
+
+.right-panel-box form .date1 {
+    max-width: 200px;
+    display: inline-block;
+}
+
