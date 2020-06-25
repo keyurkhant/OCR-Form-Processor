@@ -13,3 +13,9 @@ def toImg(pdf):
 	img2 = images[1]
 	img2 = np.array(img2)
 	cv.imwrite('static/temp_storage/'+pdf.filename+'2.jpg', img2)
+
+def toImgList(pdf):
+	images = convert_from_bytes(pdf)
+	img1 = np.array(images[0])
+	#img2 = np.array(images[1])
+	return img1

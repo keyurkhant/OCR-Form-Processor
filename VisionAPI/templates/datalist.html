@@ -38,14 +38,14 @@ $(document).ready(function(){
                             <th>Patient Name </th>
                             <th>Provider Name </th>
                             <th>Provider NPI # </th>
-                            <th>Date of Entry </th>
+                            <th>Last Update </th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     {% for user in users %}
                             <tbody>
                                 <tr>
-                                    <td>1</td>
+                                    <td>{{loop.index}}</td>
                                     <td>{{user["form1"]["pt_id1"]}}</td>
                                     <td>{{user["form1"]["pt_fname1"]}} {{user["form1"]["pt_lname1"]}}</td>
                                     <td>{{user["form1"]["provider_name1"]}}</td>

@@ -42,18 +42,18 @@ contour_info = sorted(contour_info, key=lambda c: c[2], reverse=True)
 #(x, y, w, h) = cv2.boundingRect(max_contour[0])
 
 
-file = open('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/VisionModule/result/resulttext.txt' , 'a')
-file.write('X,W,Y,H\n')
+file = open('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/VisionModule/result4/resulttext.txt' , 'a')
+file.write('X,W,Y,H,AREA\n')
 
 k = 0
 count = 1
 for i in contour_info:
     (x, y, w, h) = cv2.boundingRect(i[0])
     cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
-    txt = str(x)+","+str(w)+","+str(y)+","+str(h)+"\n"
+    txt = str(x)+","+str(w)+","+str(y)+","+str(h)+","+str(i[2])+"\n"
     file.write(txt)
-    #cv2.imwrite("/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/VisionModule/result/img"+str(count)+'.jpg' , img[y:y+h ,x:x+w])
-    #count += 1
+    cv2.imwrite("/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/VisionModule/result4/img"+str(count)+'.jpg' , img[y:y+h ,x:x+w])
+    count += 1
     #cv2.imshow('image', img)
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
@@ -70,26 +70,11 @@ print("Done")
 #cv2.imwrite('result1.jpg', img)
 
 #cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
-k = 0
-for i in contour_info:
-    (x, y, w, h) = cv2.boundingRect(i[0])
-    cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
-    
-    print(i[2])
-    
-    cv2.imshow('image', img)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-    
-    k += 1
-    if k > 15:
-        break
-    
-print(k)
+
 
 #cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 2)
 
-cv2.imshow('image', img)
+#cv2.imshow('image', img)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

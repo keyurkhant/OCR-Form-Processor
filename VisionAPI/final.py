@@ -1,4 +1,5 @@
 import sys
+import os
 import cv2 as cv
 from flask import Flask, request, render_template, url_for, redirect, make_response, session
 from VisionModule import PDF2IMG as pi
@@ -24,6 +25,7 @@ gid = ""
 update_dict1 = {}
 update_dict2 = {}
 update_final = {}
+filename = ""
 
 @app.route("/")
 def home():
@@ -31,8 +33,10 @@ def home():
 
 @app.route('/upload', methods = ["POST"])
 def upload_file():
+	global filename
 	dict1 = json.load(open('data.json','r'))
 	pdf = request.files['UploadDocument']
+	filename = pdf.filename
 	pi.toImg(pdf)
 	return render_template("second.html", dict1 = dict1, filename = pdf.filename)
 
@@ -56,6 +60,7 @@ def part2():
 		global form2_dict
 		global form1_dict
 		global final_dict
+		global filename
 		success = False
 		form2_dict = request.form.to_dict()
 		if 'isallextracted' in form2_dict:
@@ -67,6 +72,9 @@ def part2():
 		formentry = {'formentry_time' : now}
 		final_dict = {"form1": form1_dict, "form2": form2_dict, "metadata": formentry}
 		id = mongo.db.form.insert_one(final_dict)
+		os.remove('static/temp_storage/'+ filename)
+		os.remove('static/temp_storage/'+ filename +'1.jpg')
+		os.remove('static/temp_storage/'+ filename +'2.jpg')
 		if(id):
 			success = True
 		return redirect(url_for('home'))
