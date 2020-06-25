@@ -1,4 +1,0 @@
-ICD-10 Code:
-OZ12.11 and Z12.12 (Encounter for screening for malignant
-neoplasm of colon [Z12.11] and rectum [Z12.12])
-O Other(s)
