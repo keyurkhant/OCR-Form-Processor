@@ -8,7 +8,9 @@ MASK_ERODE_ITER = 10
 MASK_COLOR = (0.0,0.0,0.0) # In BGR format\
 
 
-def getContour(img):    
+def getContour():
+
+    img = cv2.imread('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/Extra/sampleform-1.jpg')
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
     edges = cv2.Canny(gray,CANNY_THRESH_1, CANNY_THRESH_2)
@@ -36,31 +38,6 @@ def getContour(img):
     #    k += 1
     #    if k > 37:
     #        break
-
-    return (x, y, w, h)
-
-def getRect(img):
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-
-    edges = cv2.Canny(gray,CANNY_THRESH_1, CANNY_THRESH_2)
-    edges = cv2.dilate(edges, None)
-    edges = cv2.erode(edges, None)
-
-    contour_info = []
-    contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-    for c in contours:
-        contour_info.append((c, cv2.isContourConvex(c), cv2.contourArea(c),))
-    contour_info = sorted(contour_info, key=lambda c: c[2], reverse=True)
-
-    k = 0
-
-    for i in contour_info:
-        (x, y, w, h) = cv2.boundingRect(i[0])
-        cv2.rectangle(img, (x,y), (x+w, y+h), (255, 255, 255), 3)
-        
-        k += 1
-        if k > 12:
-            break
-
-    return img
+    cv2.imwrite('img.jpg',img[211:2058,61:1636])
+    
+print(getContour())

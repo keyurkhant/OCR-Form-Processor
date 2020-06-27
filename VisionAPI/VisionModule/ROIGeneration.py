@@ -70,11 +70,11 @@ def getROI(img):
 	imgList.append(imgCrop5)
 
 	# Patient sex
-	imgCrop6 = img[745:795,475:720]
-	imgList.append(imgCrop6)
+	#imgCrop6 = img[745:795,475:720]
+	#imgList.append(imgCrop6)
 
 	# Patient Phone No
-	imgCrop7 = img[650:720,1053:1420]
+	imgCrop7 = img[650:690,1053:1420]
 	imgList.append(imgCrop7)
 
 	# Patient language
@@ -101,19 +101,19 @@ def getROI(img):
 #####################################
 
 	# Patient latino
-	imgCrop6 = img[1000:1050,640:840]
-	imgList.append(imgCrop6)
+	#imgCrop6 = img[1000:1050,640:840]
+	#imgList.append(imgCrop6)
 
 	# Patient race
-	imgCrop7 = img[1075:1118,10:1420]
-	imgList.append(imgCrop7)	
+	#imgCrop7 = img[1075:1118,10:1420]
+	#imgList.append(imgCrop7)	
 
 
 ####################################
 	
 	# parient has insurance?
-	imgCrop5 = img[1190:1235,668:1420]
-	imgList.append(imgCrop5)
+	#imgCrop5 = img[1190:1235,668:1420]
+	#imgList.append(imgCrop5)
 
 	# policy holder name
 	imgCrop6 = img[1225:1285,242:475]
@@ -124,16 +124,16 @@ def getROI(img):
 	imgList.append(imgCrop7)
 
 	# Relation
-	imgCrop6 = img[1225:1285,1105:1425]
-	imgList.append(imgCrop6)
+	#imgCrop6 = img[1225:1285,1105:1425]
+	#imgList.append(imgCrop6)
 
 	# insurance carrier
 	imgCrop7 = img[1270:1340,318:605]
 	imgList.append(imgCrop7)
 
 	# insurance type
-	imgCrop7 = img[1270:1340,666:1430]
-	imgList.append(imgCrop7)	
+	#imgCrop7 = img[1270:1340,666:1430]
+	#imgList.append(imgCrop7)	
 
 	# insurance address
 	imgCrop6 = img[1325:1385,336:1430]
