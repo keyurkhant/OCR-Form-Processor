@@ -1,4 +1,4 @@
-  <!doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -11,16 +11,15 @@
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/style.css">
 
-
-
     <title>Exact Science</title>
 </head>
 
 <body>
-
+    <!-- MAIN DIVISION -->
     <div class="main-wrap">
         <div class="wraper">
 
+            <!-- HEADER -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
@@ -33,30 +32,26 @@
                 </div>
             </div>
 
+            <!-- UPLOAD BUTTON SECTION -->
             <section class="intro">
                 <div class="intro-box">
                     <h1 class="page-title">Auto Form Filling OCR System</h1>
                     <form class="intro-form" action="/upload" method="POST" enctype="multipart/form-data">
                         <div>
-                            <input id="UploadDocument" type="file" onchange="form.submit()" value="Upload Document" class="UploadDocument" name="UploadDocument">
-                            <label for="UploadDocument" class="btn btn-dark" style="width: 200px;">Upload Document</label>
-                            <!-- option for direct scanning
-                            <span class="or">or</span>
-                            <input id="ScanDocument" type="file" value="ScanDocument" class="ScanDocument" onchange="form.submit()">
-                            <label for="ScanDocument" class="btn btn-dark" style="width: 200px;">Scan Document</label>
-                            -->
+                            <input id="UploadDocument" type="file" onchange="form.submit()" value="Upload Document" class="UploadDocument" name="UploadDocument" accept="application/pdf">
+                            <label for="UploadDocument" class="btn btn-dark" style="width: 200px;" title="Upload PDF">Upload Document</label>
                         </div>
                     </form>
                 </div>
             </section>
         </div>
     </div>
-    <!--JavaScript -->
+
+    <!-- JAVASCRIPT -->
     <script src="../static/js/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
     <script src="../static/js/popper.min.js" type="text/javascript"></script>
     <script src="../static/js/bootstrap.js" type="text/javascript"></script>
     <script src="../static/js/app.js" type="text/javascript"></script>
+    
 </body>
-
-
 </html>

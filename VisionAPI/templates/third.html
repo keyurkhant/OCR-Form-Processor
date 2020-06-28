@@ -24,33 +24,21 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <!-- Left Side
-                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
-                        <img src = "static/temp_storage/sampleform.pdf2.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
-                    </div>
-                    -->
+                    <!-- Left Side -->
                     <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" >
                         <img src = "static/temp_storage/{{filename}}2.jpg" onerror=this.src="/static/images/alternate.jpg" style="height: auto; width: inherit; margin-top: 10px ; border: 1px solid black" id="img1" class="img1">
                     </div>
 
 
                     <!-- Right Side -->
-<!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
-                        <!-- new divison ......................-->
-                        <!--
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">
-                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
-                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
-                        -->
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="width: inherit ; height: 88vh; overflow: scroll;overflow-x: hidden; margin-top: 10px; border: 1px solid black; padding-left: 15px;">
-                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
-                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
-
-
+                    <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="width: inherit ; height: 88vh; overflow: scroll;overflow-x: hidden; margin-top: 10px; border: 1px solid black; padding-left: 15px;">
+                        <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
+                        <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
 
                             <center>
                                 <h3>COLOGUARD PROCEDURE<br>INFORMATION </h3>
                             </center>
+                            <!-- FORM Start -->
                             <form class="part2" id="part2" action="/part2" method="post">
                                 <h3>
                                     Information from Cologuard Provider
@@ -132,24 +120,17 @@
                                     <input class="input-group-append form-control" type="text" name="poly_dob2" value="{{dict1['form2']['poly_dob2']}}"/>
                                 </div>
                             </form>
-
-                            <!-- Savan Code End -->
+                        <!-- Form End -->
                         </div>
-                <!--    </div> -->
-                        <!--
-                        <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
-                                <input class="mr-1" form="part2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
-                                <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
-                        </div>
-                        <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
-                      -->
+                    <!-- Right Section End -->
 
+                    <!-- Last Checkbox and Submit button -->                    
                       <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top: -35px; margin-left: 33.3%;">
                               <input class="mr-1" form="part2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
                               <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
                       </div>
                       <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-right: 15px; margin-top: -50px; width: 200px; height: auto; font-size: 25px;" onclick="submitForms()">
-
+                    <!-- Submit Button section end -->
                 </div>
             </div>
         </div>
@@ -160,7 +141,9 @@
     <script src="static\js\popper.min.js" type="text/javascript"></script>
     <script src="static\js\bootstrap.js" type="text/javascript"></script>
     <script src="static\js\app.js" type="text/javascript"></script>
+
 </body>
+
 <script type="text/javascript">
     submitForms = function(){
         Swal.fire({position: 'center',
