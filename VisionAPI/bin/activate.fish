@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI"
+set -gx VIRTUAL_ENV "/home/khush/Documents/Hackathon/HTR/OCR-Auto-Form/VisionAPI"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH

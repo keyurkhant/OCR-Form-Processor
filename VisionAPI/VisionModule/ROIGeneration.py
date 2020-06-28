@@ -2,6 +2,7 @@ import cv2 as cv
 import numpy as np
 from pdf2image import convert_from_bytes
 
+
 def getROI(img):
 	
 	#standard Pixel for this
@@ -74,8 +75,12 @@ def getROI(img):
 	imgList.append(imgCrop6)
 
 	# Patient Phone No
-	imgCrop7 = img[650:720,1053:1420]
+	imgCrop7 = img[650:696,1053:1420]
 	imgList.append(imgCrop7)
+ 
+	# Patient Phone No type
+	imgCrop8 = img[690:720,1053:1420]
+	imgList.append(imgCrop8)
 
 	# Patient language
 	imgCrop5 = img[715:785,1123:1420]

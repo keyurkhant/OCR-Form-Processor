@@ -9,7 +9,7 @@
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -21,10 +21,17 @@
         <div class="wraper">
             <div class="container-fluid">
                 <div class="row">
-
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden; padding-left: 15px; margin-left: 220px; margin-top: 15px;">    
+                        <!-- change the inline css if you want
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden; padding-left: 15px; margin-left: 220px; margin-top: 15px;">
                             <img src="{{ url_for('static', filename='images/logo.png') }}" style="height: 67px; width: 150px; position: absolute;">
                             <img src="{{ url_for('static', filename='images/colo.jpeg') }}" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                        -->
+
+                        <div class="right-panel-box col-12 col-md-10 col-sm-12" id="right" style="height: auto;  padding-left: 15px; margin:auto; margin-top: 15px;">
+                            <img src="{{ url_for('static', filename='images/logo.png') }}" style="height: auto; width: 10%; position: absolute;">
+                            <img src="{{ url_for('static', filename='images/colo.jpeg') }}" style="height: auto; width: 10%; position: absolute; right: 15px; top: 5px;">
+
+
                             <center>
                                 <h3>COLOGUARD PROCEDURE<br>INFORMATION </h3>
                             </center>
@@ -111,14 +118,25 @@
                             </form>
 
                             <!-- Savan Code End -->
+
+                            <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top:20px; ">
+                                <input class="mr-1" form="update2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
+                                <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
+                        </div>
+                        <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin: auto; margin-top:10px;margin-bottom: 10px; width:200px ; height:auto; font-size:25px; float: right;" onclick="submitForms()">
+
                         </div>
                 <!--    </div> -->
-                        
+
+                        <!-- for changing in the bottem layout and buttons
                         <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 220px; padding-top: 6px;">
                                 <input class="mr-1" form="update2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
                                 <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
                         </div>
                         <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-left: 930px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
+                      -->
+
+                        
                 </div>
             </div>
         </div>

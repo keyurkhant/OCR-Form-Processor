@@ -8,8 +8,8 @@
 
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static\css\bootstrap.css">
-    <link rel="stylesheet" href="static\css\style.css"> 
+    <link rel="stylesheet" href="static/css/bootstrap.css">
+    <link rel="stylesheet" href="static/css/style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="lib/blowup.js"></script>
     <script src="./static/js/imagemagnifier.js"></script>
@@ -25,9 +25,16 @@
                 <div class="row">
 
                     <!-- Left Side -->
+                    <!-- left side division
                     <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
                         <img src = "static/temp_storage/{{filename}}1.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
                     </div>
+                    -->
+                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" >
+                        <img src = "static/temp_storage/{{filename}}1.jpg" style="width:inherit; height:auto; margin-top: 10px; border: 1px solid black" id="img1" class="img1">
+                    </div>
+
+
                     <script>
                     // Initiate zoom effect:
                         imageZoom("img1", "right");
@@ -35,14 +42,25 @@
                     <!-- Right Side -->
 <!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
                         <!-- new divison ......................-->
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">    
+                        <!-- for right side panel
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">
                             <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
                             <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                        -->
+
+
+
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="width: inherit; height: 88vh; overflow: scroll; overflow-x: hidden; margin-top:10px ; border: 1px solid black; padding-left: 15px;">
+                            <img src="static/images/logo.png" style="height: auto; width: 10%; position: absolute;">
+                            <img src="static/images/colo.jpeg" style="height: auto; width: 10%; position: absolute; right: 15px; top: 5px;">
+
+
+
                             <center>
                                 <h3>COLOGUARD ORDER<br>REQUISITION FORM</h3>
                             </center>
 
-                            
+
                             <form class="part1" id="part1" action="/part1" method="post">
                                 <h3>
                                     Provider & Order Information
@@ -101,12 +119,12 @@
 
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["icd_code1"]}}'; 
+                                    var x = '{{dict1["form1"]["icd_code1"]}}';
                                     if (x == 'default'){
                                         document.getElementById('select1-icd').checked = true;
                                     }
                                     else {
-                                        document.getElementById('select2-icd').checked = true;   
+                                        document.getElementById('select2-icd').checked = true;
                                     }
                                 </script>
                                 <div class="form-field-wrap mt-3">
@@ -158,12 +176,12 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_sex1"]}}'; 
+                                    var x = '{{dict1["form1"]["pt_sex1"]}}';
                                     if (x == 'Male'){
                                         document.getElementById('select-sex-male').checked = true;
                                     }
                                     else {
-                                        document.getElementById('select-sex-female').checked = true;   
+                                        document.getElementById('select-sex-female').checked = true;
                                     }
                                 </script>
 
@@ -186,18 +204,18 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_phonetype1"]}}'; 
+                                    var x = '{{dict1["form1"]["pt_phonetype1"]}}';
                                     if (x == 'Home'){
                                         document.getElementById('aa').checked = true;
                                     }
                                     else if (x == 'Mobile'){
-                                        document.getElementById('bb').checked = true;   
+                                        document.getElementById('bb').checked = true;
                                     }
                                     else if (x == 'Work'){
-                                        document.getElementById('cc').checked = true;   
+                                        document.getElementById('cc').checked = true;
                                     }
                                     else{
-                                        document.getElementById('bb').checked = true;   
+                                        document.getElementById('bb').checked = true;
                                     }
                                 </script>
 
@@ -242,12 +260,12 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_latino1"]}}'; 
+                                    var x = '{{dict1["form1"]["pt_latino1"]}}';
                                     if (x == 'Yes'){
                                         document.getElementById('select10-yes').checked = true;
                                     }
                                     else {
-                                        document.getElementById('select10-no').checked = true;   
+                                        document.getElementById('select10-no').checked = true;
                                     }
                                 </script>
                                 <div class="form-field-wrap input-group">
@@ -295,10 +313,11 @@
                                 Patient Insurance/Billing Information
                             </h3>
                             <!-- small character comment is remaining-->
-                            
-                <!--            <form style="margin-bottom: 15px;" class="part3" id="part3" action="/part3" method="post">   -->
+                            <form>
+                              <!--            <form style="margin-bottom: 15px;" class="part3" id="part3" action="/part3" method="post">   -->
+
                                 <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
-                            </p>
+                                </p>
                                 <div class="form-field-wrap input-group">
                                     <label class="">Does patient wish Exact Sciences to bill their insurance? :</label>
                                     <div class="form-field-wrap">
@@ -313,12 +332,12 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_bill1"]}}'; 
+                                    var x = '{{dict1["form1"]["pt_bill1"]}}';
                                     if (x == 'Yes'){
                                         document.getElementById('select12-yes').checked = true;
                                     }
                                     else {
-                                        document.getElementById('select12-no').checked = true;   
+                                        document.getElementById('select12-no').checked = true;
                                     }
                                 </script>
                                 <div class="form-field-wrap input-group">
@@ -347,18 +366,18 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_relation1"]}}'; 
+                                    var x = '{{dict1["form1"]["pt_relation1"]}}';
                                     if (x == 'Self'){
                                         document.getElementById('select13-self').checked = true;
                                     }
                                     else if (x == 'Spouse'){
-                                        document.getElementById('select13-spouse').checked = true;   
+                                        document.getElementById('select13-spouse').checked = true;
                                     }
                                     else if (x == 'Other'){
-                                        document.getElementById('select13-other').checked = true;   
+                                        document.getElementById('select13-other').checked = true;
                                     }
                                     else{
-                                        document.getElementById('select13-self').checked = true;   
+                                        document.getElementById('select13-self').checked = true;
                                     }
                                 </script>
                                 <div class="form-field-wrap input-group">
@@ -391,24 +410,24 @@
                                     </div>
                                 </div>
                                 <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["insurance_type1"]}}'; 
+                                    var x = '{{dict1["form1"]["insurance_type1"]}}';
                                     if (x == 'Private'){
                                         document.getElementById('select14-private').checked = true;
                                     }
                                     else if (x == 'Medicare'){
-                                        document.getElementById('select14-medicare').checked = true;   
+                                        document.getElementById('select14-medicare').checked = true;
                                     }
                                     else if (x == 'Medicare Advantage'){
-                                        document.getElementById('select14-medicareadvantage').checked = true;   
+                                        document.getElementById('select14-medicareadvantage').checked = true;
                                     }
                                     else if (x == 'Medicaid'){
-                                        document.getElementById('select14-medicaid').checked = true;   
+                                        document.getElementById('select14-medicaid').checked = true;
                                     }
                                     else if (x == 'Tricare'){
-                                        document.getElementById('select14-tricare').checked = true;   
+                                        document.getElementById('select14-tricare').checked = true;
                                     }
                                     else{
-                                        document.getElementById('select14-private').checked = true;   
+                                        document.getElementById('select14-private').checked = true;
                                     }
                                 </script>
                                 <div class="form-field-wrap input-group">
@@ -454,22 +473,31 @@
                             <!-- Savan Code End -->
                         </div>
                 <!--    </div> -->
-                        
+
+                        <!--
                         <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
                             <input class="mr-1" form="part1" type="checkbox" id="esign" name="esign" value="Yes">
                             <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
                         </div>
                         <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
+                      -->
+
+                        <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top: -35px; margin-left: 33.3%;">
+                            <input class="mr-1" form="part1" type="checkbox" id="esign" name="esign" value="Yes">
+                            <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
+                        </div>
+                        <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-right: 15px; margin-top: -50px; width: 200px; height: auto; font-size: 25px;" onclick="submitForms()">
+
                 </div>
             </div>
         </div>
     </div>
 
     <!--JavaScript -->
-    <script src="static\js\jquery-3.5.1.slim.min.js" type="text/javascript"></script>
-    <script src="static\js\popper.min.js" type="text/javascript"></script>
-    <script src="static\js\bootstrap.js" type="text/javascript"></script>
-    <script src="static\js\app.js" type="text/javascript"></script>
+    <script src="static/js/jquery-3.5.1.slim.min.js" type="text/javascript"></script>
+    <script src="static/js/popper.min.js" type="text/javascript"></script>
+    <script src="static/js/bootstrap.js" type="text/javascript"></script>
+    <script src="static/js/app.js" type="text/javascript"></script>
 </body>
 <script type="text/javascript">
     submitForms = function(){

@@ -8,7 +8,7 @@ alias deactivate 'test $?_OLD_VIRTUAL_PATH != 0 && setenv PATH "$_OLD_VIRTUAL_PA
 # Unset irrelevant variables.
 deactivate nondestructive
 
-setenv VIRTUAL_ENV "/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI"
+setenv VIRTUAL_ENV "/home/khush/Documents/Hackathon/HTR/OCR-Auto-Form/VisionAPI"
 
 set _OLD_VIRTUAL_PATH="$PATH"
 setenv PATH "$VIRTUAL_ENV/bin:$PATH"

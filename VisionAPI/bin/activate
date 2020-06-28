@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI"
+VIRTUAL_ENV="/home/khush/Documents/Hackathon/HTR/OCR-Auto-Form/VisionAPI"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

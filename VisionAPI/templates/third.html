@@ -9,7 +9,7 @@
     <!--CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="static\css\bootstrap.css">
-    <link rel="stylesheet" href="static\css\style.css"> 
+    <link rel="stylesheet" href="static\css\style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="lib/blowup.js"></script>
     <script src="./static/js/imagemagnifier.js"></script>
@@ -24,16 +24,30 @@
             <div class="container-fluid">
                 <div class="row">
 
-                    <!-- Left Side -->
+                    <!-- Left Side
                     <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" style="margin-top: 15px">
                         <img src = "static/temp_storage/sampleform.pdf2.jpg" style="height: 530px; width: 415px; position: fixed; border: 1px solid black" id="img1" class="img1">
                     </div>
+                    -->
+                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" >
+                        <img src = "static/temp_storage/{{filename}}2.jpg" onerror=this.src="/static/images/alternate.jpg" style="height: auto; width: inherit; margin-top: 10px ; border: 1px solid black" id="img1" class="img1">
+                    </div>
+
+
                     <!-- Right Side -->
 <!--                    <div class="right-pannel col-12 col-md-8 col-sm-12"> -->
                         <!-- new divison ......................-->
-                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">    
+                        <!--
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="height: 500px; overflow: scroll;overflow-x: hidden;border: 1px solid black; padding-left: 15px; margin-left: 440px;">
                             <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
                             <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+                        -->
+                        <div class="right-panel-box col-12 col-md-8 col-sm-12" id="right" style="width: inherit ; height: 88vh; overflow: scroll;overflow-x: hidden; margin-top: 10px; border: 1px solid black; padding-left: 15px;">
+                            <img src="static/images/logo.png" style="height: 67px; width: 150px; position: absolute;">
+                            <img src="static/images/colo.jpeg" style="height: 67px; width: 150px; position: absolute; right: 15px; top: 5px;">
+
+
+
                             <center>
                                 <h3>COLOGUARD PROCEDURE<br>INFORMATION </h3>
                             </center>
@@ -122,12 +136,20 @@
                             <!-- Savan Code End -->
                         </div>
                 <!--    </div> -->
-                        
+                        <!--
                         <div class="input-group mb-0 d-inline" style="width: 750px; margin-left: 440px; padding-top: 6px;">
                                 <input class="mr-1" form="part2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
                                 <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
                         </div>
                         <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-left: 1150px; width: 200px; height: 50px; font-size: 25px;" onclick="submitForms()">
+                      -->
+
+                      <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top: -35px; margin-left: 33.3%;">
+                              <input class="mr-1" form="part2" type="checkbox" id="isallextracted" name="isallextracted" value="Yes">
+                              <label class="mb-2" for="isallextracted">Please mark right only if all data extracted are as same as hard copy for both form.</label>
+                      </div>
+                      <input type="submit" name="Submit" value="SUBMIT" class="btn btn-dark" style="margin-right: 15px; margin-top: -50px; width: 200px; height: auto; font-size: 25px;" onclick="submitForms()">
+
                 </div>
             </div>
         </div>

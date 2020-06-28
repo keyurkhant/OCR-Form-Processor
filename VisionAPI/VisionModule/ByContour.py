@@ -11,10 +11,10 @@ MASK_COLOR = (0.0,0.0,0.0) # In BGR format\
 img = cv2.imread('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/Untitled-3.jpg')
 
 #img = cv2.imread('Original/sampleform-1.jpg')
-#img = cv2.resize(img, (780, 540), interpolation = cv2.INTER_NEAREST) 
+#img = cv2.resize(img, (780, 540), interpolation = cv2.INTER_NEAREST)
 
 #img = cv2.imread('Original/sampleform-1.jpg')
-#img = cv2.resize(img, (780, 540), interpolation = cv2.INTER_NEAREST) 
+#img = cv2.resize(img, (780, 540), interpolation = cv2.INTER_NEAREST)
 
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 #gray1 = gray.copy()
@@ -57,7 +57,7 @@ for i in contour_info:
     #cv2.imshow('image', img)
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
-    
+
     k += 1
     if k > 37:
         break

@@ -1,4 +1,5 @@
 import cv2
+import time
 
 BLUR = 21
 CANNY_THRESH_1 = 10
@@ -27,6 +28,17 @@ def getContour(img):
 
     i = contour_info[0]
     (x, y, w, h) = cv2.boundingRect(i[0])
+    
+    #cv2.rectangle(img, (x,y), (x+w, y+h), (255, 0, 0), 3)
+    
+    #cv2.imshow('temp', img)
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
+    #
+    #cv2.imshow('temp', img[y:y+h, x:x+w])
+    #cv2.waitKey(0)
+    #cv2.destroyAllWindows()
+    
 
     #for i in contour_info:
     #    (x, y, w, h) = cv2.boundingRect(i[0])

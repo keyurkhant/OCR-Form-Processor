@@ -3,6 +3,7 @@ import os
 import cv2 as cv
 from flask import Flask, request, render_template, url_for, redirect, make_response, session
 from VisionModule import PDF2IMG as pi
+from VisionModule import recognize
 from flask_pymongo import PyMongo
 import time
 import json
@@ -26,6 +27,7 @@ update_dict1 = {}
 update_dict2 = {}
 update_final = {}
 filename = ""
+data = {}
 
 @app.route("/")
 def home():
@@ -33,18 +35,19 @@ def home():
 
 @app.route('/upload', methods = ["POST"])
 def upload_file():
-	global filename
-	dict1 = json.load(open('data.json','r'))
+	global filename,data
 	pdf = request.files['UploadDocument']
 	filename = pdf.filename
-	pi.toImg(pdf)
-	return render_template("second.html", dict1 = dict1, filename = pdf.filename)
+	start1 = time.time()
+	images = pi.toImg(pdf)
+	data = recognize.recognize(images[0])
+	return render_template("second.html", dict1 = data, filename = filename)
 
 @app.route('/part1', methods = ["POST"])
 def part1():
 	if request.method == "POST":
-		dict1 = json.load(open('data.json','r'))
-		global form1_dict
+		global data
+		global form1_dict,filename
 		form1_dict = request.form.to_dict()
 		race = request.form.getlist('pt_race1')
 		form1_dict['pt_race1'] = race
@@ -52,7 +55,7 @@ def part1():
 			pass
 		else:
 			form1_dict['esign'] = 'No'
-		return render_template('third.html', dict1 = dict1)
+		return render_template('third.html', dict1 = data, filename = filename)
 
 @app.route('/part2', methods = ["POST"])
 def part2():
@@ -74,7 +77,10 @@ def part2():
 		id = mongo.db.form.insert_one(final_dict)
 		os.remove('static/temp_storage/'+ filename)
 		os.remove('static/temp_storage/'+ filename +'1.jpg')
-		os.remove('static/temp_storage/'+ filename +'2.jpg')
+		try:
+			os.remove('static/temp_storage/'+ filename +'2.jpg')
+		except Exception as e:
+			pass
 		if(id):
 			success = True
 		return redirect(url_for('home'))

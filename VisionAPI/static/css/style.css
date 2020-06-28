@@ -1,4 +1,4 @@
-/* 
+/*
 # GENERAL
 # TYPOGRAPHY
 # INTRO
@@ -85,8 +85,8 @@ input[type="file"]{
 .intro {
     display: table;
     text-align: center;
-    background: #f2f2f2;
-    height: 100vh;
+    background: #fff;
+    height: 80vh;
     vertical-align: middle;
     width: 100%;
     position: relative;
@@ -95,6 +95,7 @@ input[type="file"]{
 .intro-box {
     display: table-cell;
     vertical-align: middle;
+    top: 50%;
 }
 
 .intro-form span.or {
@@ -137,12 +138,12 @@ INTRO
     padding: 8px 15px;
 }
 
-/*
+
 .right-panel-box form {
     border: 1px solid #dddddd;
     padding: 15px;
 }
-*/
+
 
 .right-panel-box .box-title {
     background: #f2f2f2;
@@ -185,13 +186,18 @@ INTRO
 DATA LIST
 -------------------------------------------*/
 
+/* if you wanted to make screen size defailt then remove below container*/
+.container{
+  width: 90%;
+}
+
 .table-responsive {
         margin: 30px 0;
     }
     .table-wrapper {
         min-width: 1000px;
         background: #fff;
-        padding: 20px;        
+        padding: 20px;
         box-shadow: 0 1px 1px rgba(0,0,0,.05);
     }
     .table-title {
@@ -200,10 +206,12 @@ DATA LIST
     }
     .table-title h2 {
         margin: 8px 0 0;
-        font-size: 22px;
+        font-size: 40px;
     }
     table.table tr th, table.table tr td {
         border-color: #e9e9e9;
+        padding: 10px;
+        text-align: center;
     }
     table.table-striped tbody tr:nth-of-type(odd) {
         background-color: #fcfcfc;
@@ -235,7 +243,7 @@ DATA LIST
     }
     table.table td i {
         font-size: 19px;
-    }    
+    }
     .pagination {
         float: right;
         margin: 0 0 5px;
@@ -254,11 +262,11 @@ DATA LIST
     }
     .pagination li a:hover {
         color: #666;
-    }   
+    }
     .pagination li.active a {
         background: #03A9F4;
     }
-    .pagination li.active a:hover {        
+    .pagination li.active a:hover {
         background: #0397d6;
     }
     .pagination li.disabled i {
@@ -272,7 +280,7 @@ DATA LIST
         float: left;
         margin-top: 6px;
         font-size: 95%;
-    } 
+    }
 
 
 /*----------------------------
@@ -281,13 +289,18 @@ HEADER
 
 -----------------------------*/
 
+
 .logo {
-    height: 90px; 
-    width: 200px; 
-    position: absolute; 
-    top: 0px; 
-    left: 0px;
+    height: 90px;
+    width: 200px;
+
 }
+
+.btnright{
+  padding: 20px;
+  margin-left: 75%;
+}
+
 
 .header {
   padding: 20px 10px;
@@ -298,11 +311,11 @@ HEADER
 }
 
 .header a {
-  float: right;  
+  float: right;
   text-align: center;
   padding: 12px;
   text-decoration: none;
-  font-size: 15px; 
+  font-size: 15px;
   line-height: 20px;
   border-radius: 4px;
   background-color: #878894;
@@ -334,8 +347,15 @@ HEADER
     display: block;
     text-align: left;
   }
-  
+
   .header-right {
     float: none;
   }
+}
+
+
+/* also use for table title */
+.title {
+  font-size: 35px;
+  margin-bottom: 30px;
 }
