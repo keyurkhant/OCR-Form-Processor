@@ -17,6 +17,7 @@
 
     <title>Exact Science</title>
 </head>
+
 <body>
     <div class="main-wrap">
         <!-- Wrap -->
@@ -25,8 +26,8 @@
                 <div class="row">
 
                     <!-- LEFT SIDE IMAGE SECTION -->
-                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left" >
-                        <img src = "static/temp_storage/{{filename}}1.jpg" style="width:inherit; height:auto; margin-top: 10px; border: 1px solid black" id="img1" class="img1">
+                    <div class="Left-panel col-12 col-md-4 col-sm-12" id="left">
+                        <img src="static/temp_storage/{{filename}}1.jpg" style="width:inherit; height:auto; margin-top: 10px; border: 1px solid black" id="img1" class="img1">
                     </div>
 
                     <!-- RIGHT SIDE FORM SECTION -->
@@ -39,411 +40,395 @@
                             <h3>COLOGUARD ORDER<br>REQUISITION FORM</h3>
                         </center>
 
-                            <!-- FORM SECTION -->
-                            <form class="part1" id="part1" action="/part1" method="post">
-                                <h3>
-                                    Provider & Order Information
-                                </h3>
+                        <!-- FORM SECTION -->
+                        <form class="part1" id="part1" action="/part1" method="post">
+                            <h3>
+                                Provider & Order Information
+                            </h3>
+                            <div class="form-field-wrap">
+                                <h4 class="box-title">Provider Information</h4>
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Healthcare Organization Name :</label>
+                                <input class="input-group-append form-control" type="text" name="hco_name1" value="{{dict1['form1']['hco_name1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Provider Name :</label>
+                                <input class="input-group-append form-control" type="text" name="provider_name1" value="{{dict1['form1']['provider_name1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">NPI # :</label>
+                                <input class="input-group-append form-control" type="text" name="pr_npi1" value="{{dict1['form1']['pr_npi1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Location Address Name :</label>
+                                <input class="input-group-append form-control" type="text" name="pr_address1" value="{{dict1['form1']['pr_address1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">City, State, Zip :</label>
+                                <input class="input-group-append form-control" type="text" name="pr_city1" value="{{dict1['form1']['pr_city1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Phone Number :</label>
+                                <input class="input-group-append form-control" type="text" name="pr_phone1" value="{{dict1['form1']['pr_phone1']}}" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Secure Fax Number :</label>
+                                <input class="input-group-append form-control" type="text" name="pr_fax1" value="{{dict1['form1']['pr_fax1']}}" />
+                            </div>
+
+                            <div class="form-field-wrap mt-4">
+                                <h4 class="box-title">Order Information</h4>
+                            </div>
+                            <div class="form-field-wrap">
+                                <p>This section is not intended to influence the medical judgment of an ordering provider in determining whether this test is right for any particular patient. The following codes are listed as a convenience. Ordering practitioners
+                                    should report the diagnosis code(s) that best describes the reason for performing the test.
+                                </p>
+                            </div>
+                            <div class="form-field-wrap">
+                                <h6 class="mb-1 d-block">ICD-10 Code:</h6>
+                                <div class="input-group mb-0">
+                                    <input class="mr-2" type="radio" id="select1-icd" name="icd_code1" value="default">
+                                    <label class="mb-2" for="select1-icd">Z12.11 and Z12.12 (Encounter for screening for malignant neoplasm of colon [Z12.11] and rectum [Z12.12])</label>
+                                </div>
+                                <div class="input-group mb-0">
+                                    <input class="mr-2" type="radio" id="select2-icd" name="icd_code1" value="other">
+                                    <label class="mb-2" for="select2-icd">Other(s)</label>
+                                    <input class="input-group-append form-control" type="text" name="icd_other1" value="{{dict1['form1']['icd_other1']}}" />
+                                </div>
+
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["icd_code1"]}}';
+                                if (x == 'default') {
+                                    document.getElementById('select1-icd').checked = true;
+                                } else {
+                                    document.getElementById('select2-icd').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap mt-3">
+                                <h6 class="mb-1">Certification</h6>
+                                <p>I am a licensed healthcare provider authorized to order Cologuard. This test is medically necessary and the patient is eligible to use Cologuard. I will maintain the privacy of test results and related information as required
+                                    by HIPAA. I authorize Exact Sciences Laboratories to obtain reimbursement for Cologuard and to directly contact and collect additional samples from the patient as appropriate.
+                                </p>
+                            </div>
+                            <div class="form-field-wrap mt-3 text-md-left text-left">
+                                <p class="date1 mt-2">
+                                    Date of Order (MM/DD/YYYY):<br>
+                                    <input class="input-group-append form-control" id="order_date1" name="order_date1" value="{{dict1['form1']['order_date1']}}" type="text" />
+                                </p>
+                            </div>
+                            <h3>
+                                Patient Demographics
+                            </h3>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Patient ID/MRN :</label>
+                                <input class="input-group-append form-control" name="pt_id1" value="{{dict1['form1']['pt_id1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">First Name :</label>
+                                <input class="input-group-append form-control" name="pt_fname1" value="{{dict1['form1']['pt_fname1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Last Name :</label>
+                                <input class="input-group-append form-control" name="pt_lname1" value="{{dict1['form1']['pt_lname1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">DOB (MM/DD/YYYY) :</label>
+                                <input class="input-group-append form-control" name="pt_dob1" value="{{dict1['form1']['pt_dob1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Sex :</label>
                                 <div class="form-field-wrap">
-                                    <h4 class="box-title">Provider Information</h4>
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select-sex-male" name="pt_sex1" value="Male">
+                                        <label class="mb-2" for="select-sex-male">Male</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select-sex-female" name="pt_sex1" value="Female">
+                                        <label class="mb-2" for="select-sex-female">Female</label>
+                                    </div>
                                 </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Healthcare Organization Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="hco_name1" value="{{dict1['form1']['hco_name1']}}" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Provider Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="provider_name1" value="{{dict1['form1']['provider_name1']}}"/>
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">NPI # :</label>
-                                    <input class="input-group-append form-control" type="text" name="pr_npi1" value="{{dict1['form1']['pr_npi1']}}"/>
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Location Address Name :</label>
-                                    <input class="input-group-append form-control" type="text" name="pr_address1" value="{{dict1['form1']['pr_address1']}}"/>
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">City, State, Zip :</label>
-                                    <input class="input-group-append form-control" type="text" name="pr_city1" value="{{dict1['form1']['pr_city1']}}"/>
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Phone Number :</label>
-                                    <input class="input-group-append form-control" type="text" name="pr_phone1" value="{{dict1['form1']['pr_phone1']}}"/>
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Secure Fax Number :</label>
-                                    <input class="input-group-append form-control" type="text" name="pr_fax1" value="{{dict1['form1']['pr_fax1']}}"/>
-                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["pt_sex1"]}}';
+                                if (x == 'Male') {
+                                    document.getElementById('select-sex-male').checked = true;
+                                } else {
+                                    document.getElementById('select-sex-female').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Phone Number (Required) :</label>
+                                <div>
+                                    <input class="form-control" type="text" name="pt_phone1" value="{{dict1['form1']['pt_phone1']}}" />
 
-                                <div class="form-field-wrap mt-4">
-                                    <h4 class="box-title">Order Information</h4>
+                                    <div class="d-block ">
+                                        <input class="" type="radio" id="aa" name="pt_phonetype1" value="Home">
+                                        <label class="mb-2" for="aa">Home</label>
+
+                                        <input class="" type="radio" id="bb" name="pt_phonetype1" value="Mobile">
+                                        <label class="mb-2" for="bb">Mobile</label>
+
+                                        <input class="" type="radio" id="cc" name="pt_phonetype1" value="Work">
+                                        <label class="mb-2" for="cc">Work</label>
+                                    </div>
                                 </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["pt_phonetype1"]}}';
+                                if (x == 'Home') {
+                                    document.getElementById('aa').checked = true;
+                                } else if (x == 'Mobile') {
+                                    document.getElementById('bb').checked = true;
+                                } else if (x == 'Work') {
+                                    document.getElementById('cc').checked = true;
+                                } else {
+                                    document.getElementById('bb').checked = true;
+                                }
+                            </script>
+
+                            <div class="form-field-wrap input-group">
+                                <label class="">Language Prefrence (optional) :</label>
+                                <input class="input-group-append form-control" name="pt_lang1" value="{{dict1['form1']['pt_lang1']}}" type="text" />
+                            </div>
+
+                            <div class="form-field-wrap input-group">
+                                <label class="">Shipping Address :</label>
+                                <input class="input-group-append form-control" name="pt_saddress1" value="{{dict1['form1']['pt_saddress1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">City, State, Zip :</label>
+                                <input class="input-group-append form-control" name="pt_scity1" value="{{dict1['form1']['pt_scity1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Billing Address :</label>
+                                <input class="input-group-append form-control" name="pt_baddress1" value="{{dict1['form1']['pt_baddress1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">City, State, Zip:</label>
+                                <input class="input-group-append form-control" name="pt_bcity1" value="{{dict1['form1']['pt_bcity1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap mt-4">
+                                <h4 class="box-title">PATIENT ETHNICITY AND RACE (Optional)</h4>
+                            </div>
+
+                            <div class="form-field-wrap input-group">
+                                <label class="">Is your patient of Hispanic or Latino origin or descent? :</label>
                                 <div class="form-field-wrap">
-                                    <p>This section is not intended to influence the medical judgment of an ordering provider in determining whether this test is right for any particular patient. The following codes are listed as a convenience. Ordering
-                                        practitioners should report the diagnosis code(s) that best describes the reason for performing the test.
-                                    </p>
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select10-yes" name="pt_latino1" value="Yes">
+                                        <label class="mb-2" for="select10-yes">Yes</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select10-no" name="pt_latino1" value="No">
+                                        <label class="mb-2" for="select10-no">No</label>
+                                    </div>
                                 </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["pt_latino1"]}}';
+                                if (x == 'Yes') {
+                                    document.getElementById('select10-yes').checked = true;
+                                } else {
+                                    document.getElementById('select10-no').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Please mark one or more to indicate your patient’s race :</label>
                                 <div class="form-field-wrap">
-                                    <h6 class="mb-1 d-block">ICD-10 Code:</h6>
-                                    <div class="input-group mb-0">
-                                        <input class="mr-2" type="radio" id="select1-icd" name="icd_code1" value="default">
-                                        <label class="mb-2" for="select1-icd">Z12.11 and Z12.12 (Encounter for screening for malignant neoplasm of colon [Z12.11] and rectum [Z12.12])</label>
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="checkbox" id="White" name="pt_race1" value="White">
+                                        <label class="mb-2" for="select11-white">White</label>
                                     </div>
-                                    <div class="input-group mb-0">
-                                        <input class="mr-2" type="radio" id="select2-icd" name="icd_code1" value="other">
-                                        <label class="mb-2" for="select2-icd">Other(s)</label>
-                                        <input class="input-group-append form-control" type="text" name="icd_other1" value="{{dict1['form1']['icd_other1']}}" />
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="checkbox" id="Black or African-American" name="pt_race1" value="Black or African-American">
+                                        <label class="mb-2" for="select11-black">Black or African-American</label>
                                     </div>
 
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["icd_code1"]}}';
-                                    if (x == 'default'){
-                                        document.getElementById('select1-icd').checked = true;
-                                    }
-                                    else {
-                                        document.getElementById('select2-icd').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap mt-3">
-                                    <h6 class="mb-1">Certification</h6>
-                                    <p>I am a licensed healthcare provider authorized to order Cologuard. This test is medically necessary and the patient is eligible to use Cologuard. I will maintain the privacy of test results and related information as
-                                        required by HIPAA. I authorize Exact Sciences Laboratories to obtain reimbursement for Cologuard and to directly contact and collect additional samples from the patient as appropriate.
-                                    </p>
-                                </div>
-                                <div class="form-field-wrap mt-3 text-md-left text-left">
-                                    <p class="date1 mt-2">
-                                        Date of Order (MM/DD/YYYY):<br>
-                                        <input class="input-group-append form-control" id="order_date1" name="order_date1" value="{{dict1['form1']['order_date1']}}" type="text" />
-                                    </p>
-                                </div>
-                                <h3>
-                                    Patient Demographics
-                                </h3>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Patient ID/MRN :</label>
-                                    <input class="input-group-append form-control" name="pt_id1" value="{{dict1['form1']['pt_id1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">First Name :</label>
-                                    <input class="input-group-append form-control" name="pt_fname1" value="{{dict1['form1']['pt_fname1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Last Name :</label>
-                                    <input class="input-group-append form-control" name="pt_lname1" value="{{dict1['form1']['pt_lname1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">DOB (MM/DD/YYYY) :</label>
-                                    <input class="input-group-append form-control" name="pt_dob1" value="{{dict1['form1']['pt_dob1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Sex :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select-sex-male" name="pt_sex1" value="Male">
-                                            <label class="mb-2" for="select-sex-male">Male</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select-sex-female" name="pt_sex1" value="Female">
-                                            <label class="mb-2" for="select-sex-female">Female</label>
-                                        </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="checkbox" id="Asian" name="pt_race1" value="Asian">
+                                        <label class="mb-2" for="select11-asian">Asian</label>
+                                    </div>
+                                    <br>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="checkbox" id="Native Hawaiian or other Pacific Islander" name="pt_race1" value="Native Hawaiian or other Pacific Islander">
+                                        <label class="mb-2" for="select11-nativehawaiian">Native Hawaiian or other Pacific Islander</label>
+                                    </div>
+
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="checkbox" id="American Indian or Alaska Native" name="pt_race1" value="American Indian or Alaska Native">
+                                        <label class="mb-2" for="select11-americanindian">American Indian or Alaska Native</label>
                                     </div>
                                 </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_sex1"]}}';
-                                    if (x == 'Male'){
-                                        document.getElementById('select-sex-male').checked = true;
-                                    }
-                                    else {
-                                        document.getElementById('select-sex-female').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Phone Number (Required) :</label>
-                                    <div>
-                                        <input class="form-control" type="text" name="pt_phone1" value="{{dict1['form1']['pt_phone1']}}" />
-
-                                        <div class="d-block ">
-                                            <input class="" type="radio" id="aa" name="pt_phonetype1" value="Home">
-                                            <label class="mb-2" for="aa">Home</label>
-
-                                            <input class="" type="radio" id="bb" name="pt_phonetype1" value="Mobile">
-                                            <label class="mb-2" for="bb">Mobile</label>
-
-                                            <input class="" type="radio" id="cc" name="pt_phonetype1" value="Work">
-                                            <label class="mb-2" for="cc">Work</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_phonetype1"]}}';
-                                    if (x == 'Home'){
-                                        document.getElementById('aa').checked = true;
-                                    }
-                                    else if (x == 'Mobile'){
-                                        document.getElementById('bb').checked = true;
-                                    }
-                                    else if (x == 'Work'){
-                                        document.getElementById('cc').checked = true;
-                                    }
-                                    else{
-                                        document.getElementById('bb').checked = true;
-                                    }
-                                </script>
-
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Language Prefrence (optional) :</label>
-                                    <input class="input-group-append form-control" name="pt_lang1" value="{{dict1['form1']['pt_lang1']}}" type="text" />
-                                </div>
-
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Shipping Address :</label>
-                                    <input class="input-group-append form-control" name="pt_saddress1" value="{{dict1['form1']['pt_saddress1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">City, State, Zip :</label>
-                                    <input class="input-group-append form-control" name="pt_scity1" value="{{dict1['form1']['pt_scity1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Billing Address :</label>
-                                    <input class="input-group-append form-control" name="pt_baddress1" value="{{dict1['form1']['pt_baddress1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">City, State, Zip:</label>
-                                    <input class="input-group-append form-control" name="pt_bcity1" value="{{dict1['form1']['pt_bcity1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap mt-4">
-                                    <h4 class="box-title">PATIENT ETHNICITY AND RACE (Optional)</h4>
-                                </div>
-
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Is your patient of Hispanic or Latino origin or descent? :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select10-yes" name="pt_latino1" value="Yes">
-                                            <label class="mb-2" for="select10-yes">Yes</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select10-no" name="pt_latino1" value="No">
-                                            <label class="mb-2" for="select10-no">No</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_latino1"]}}';
-                                    if (x == 'Yes'){
-                                        document.getElementById('select10-yes').checked = true;
-                                    }
-                                    else {
-                                        document.getElementById('select10-no').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Please mark one or more to indicate your patient’s race :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="checkbox" id="White" name="pt_race1" value="White">
-                                            <label class="mb-2" for="select11-white">White</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="checkbox" id="Black or African-American" name="pt_race1" value="Black or African-American">
-                                            <label class="mb-2" for="select11-black">Black or African-American</label>
-                                        </div>
-
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="checkbox" id="Asian" name="pt_race1" value="Asian">
-                                            <label class="mb-2" for="select11-asian">Asian</label>
-                                        </div>
-                                        <br>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="checkbox" id="Native Hawaiian or other Pacific Islander" name="pt_race1" value="Native Hawaiian or other Pacific Islander">
-                                            <label class="mb-2" for="select11-nativehawaiian">Native Hawaiian or other Pacific Islander</label>
-                                        </div>
-
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="checkbox" id="American Indian or Alaska Native" name="pt_race1" value="American Indian or Alaska Native">
-                                            <label class="mb-2" for="select11-americanindian">American Indian or Alaska Native</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var i = 0;
-                                    var list = [];
-                                    '{% for item in dict1["form1"]["pt_race1"] %}'
-                                        list[i] = '{{item}}'
-                                        i += 1
-                                    '{% endfor %}'
-                                    var k;
-                                    for(k = 0; k < list.length; k++){
-                                        document.getElementById(list[k]).checked = true;
-                                    }
-                                </script>
+                            </div>
+                            <script type="text/javascript">
+                                var i = 0;
+                                var list = [];
+                                '{% for item in dict1["form1"]["pt_race1"] %}'
+                                list[i] = '{{item}}'
+                                i += 1 '{% endfor %}'
+                                var k;
+                                for (k = 0; k < list.length; k++) {
+                                    document.getElementById(list[k]).checked = true;
+                                }
+                            </script>
                             <h3>
                                 Patient Insurance/Billing Information
                             </h3>
-                                <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
+                            <p>Only completion of “Policyholder Name” and “Policyholder DOB” is necessary when attaching a copy of the front & back of primary and/or secondary insurance cards
+                            </p>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Does patient wish Exact Sciences to bill their insurance? :</label>
+                                <div class="form-field-wrap">
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select12-yes" name="pt_bill1" value="Yes">
+                                        <label class="mb-2" for="select12-yes">Yes (complete below)</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select12-no" name="pt_bill1" value="No">
+                                        <label class="mb-2" for="select12-no">No (patient will self-pay)</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["pt_bill1"]}}';
+                                if (x == 'Yes') {
+                                    document.getElementById('select12-yes').checked = true;
+                                } else {
+                                    document.getElementById('select12-no').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Policyholder Name :</label>
+                                <input class="input-group-append form-control" name="poly_name1" value="{{dict1['form1']['poly_name1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Policyholder DOB :</label>
+                                <input class="input-group-append form-control" name="poly_dob1" value="{{dict1['form1']['poly_dob1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Relationship to patient :</label>
+                                <div class="form-field-wrap">
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select13-self" name="pt_relation1" value="Self">
+                                        <label class="mb-2" for="select13-self">Self</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select13-spouse" name="pt_relation1" value="Spouse">
+                                        <label class="mb-2" for="select13-spouse">Spouse</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select13-other" name="pt_relation1" value="Other">
+                                        <label class="mb-2" for="select13-other">Other</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["pt_relation1"]}}';
+                                if (x == 'Self') {
+                                    document.getElementById('select13-self').checked = true;
+                                } else if (x == 'Spouse') {
+                                    document.getElementById('select13-spouse').checked = true;
+                                } else if (x == 'Other') {
+                                    document.getElementById('select13-other').checked = true;
+                                } else {
+                                    document.getElementById('select13-self').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Primary Insurance Carrier :</label>
+                                <input class="input-group-append form-control" name="insurance_carrier1" value="{{dict1['form1']['insurance_carrier1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Type of Insurance :</label>
+                                <div class="form-field-wrap">
+                                    <div class="input-group mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select14-private" name="insurance_type1" value="Private">
+                                        <label class="mb-2" for="select13-private">Private</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select14-medicare" name="insurance_type1" value="Medicare">
+                                        <label class="mb-2" for="select14-medicare">Medicare</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select14-medicareadvantage" name="insurance_type1" value="Medicare Advantage">
+                                        <label class="mb-2" for="select14-medicareadvantage">Medicare Advantage</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select14-medicaid" name="insurance_type1" value="Medicaid">
+                                        <label class="mb-2" for="select14-medicaid">Medicaid</label>
+                                    </div>
+                                    <div class="input-group-append mb-0 d-inline">
+                                        <input class="mr-1" type="radio" id="select14-tricare" name="insurance_type1" value="Tricare">
+                                        <label class="mb-2" for="select14-tricare">Tricare</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <script type="text/javascript">
+                                var x = '{{dict1["form1"]["insurance_type1"]}}';
+                                if (x == 'Private') {
+                                    document.getElementById('select14-private').checked = true;
+                                } else if (x == 'Medicare') {
+                                    document.getElementById('select14-medicare').checked = true;
+                                } else if (x == 'Medicare Advantage') {
+                                    document.getElementById('select14-medicareadvantage').checked = true;
+                                } else if (x == 'Medicaid') {
+                                    document.getElementById('select14-medicaid').checked = true;
+                                } else if (x == 'Tricare') {
+                                    document.getElementById('select14-tricare').checked = true;
+                                } else {
+                                    document.getElementById('select14-private').checked = true;
+                                }
+                            </script>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Claims Submission Address :</label>
+                                <input class="input-group-append form-control" name="claim_address1" value="{{dict1['form1']['claim_address1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Subscriber ID/Policy Number :</label>
+                                <input class="input-group-append form-control" name="sub_id1" value="{{dict1['form1']['sub_id1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Group Number :</label>
+                                <input class="input-group-append form-control" name="group_number1" value="{{dict1['form1']['group_number1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Plan :</label>
+                                <input class="input-group-append form-control" name="plan1" value="{{dict1['form1']['plan1']}}" type="text" />
+                            </div>
+                            <div class="form-field-wrap input-group">
+                                <label class="">Prior-Authentication Code (if available) :</label>
+                                <input class="input-group-append form-control" name="auth_code1" value="{{dict1['form1']['auth_code1']}}" type="text" />
+                            </div>
+
+                            <div class="form-field-wrap mt-4">
+                                <h4 class="box-title">PATIENT AUTHORIZATIONS, ASSIGNMENT OF BENEFITS (AOB) & FINANCIAL RESPONSIBILITIES</h4>
+                                <p>I authorize Exact Sciences Laboratories (Exact) to bill my insurance/health plan and furnish them with my Cologuard order information, test results, or other information requested for reimbursement. I assign all rights
+                                    and benefits under my insurance plans to Exact and authorize Exact to appeal and contest any reimbursement denial, including in any administrative or civil proceedings necessary to pursue reimbursement. I authorize
+                                    all reimbursements to be paid directly to the laboratory in consideration for services performed. I understand that I am responsible for any amount not paid, including amounts for non-covered services or services determined
+                                    by my plan to be provided by an out-of-network provider. I further understand that if I am a Medicaid enrollee in a state where Exact is enrolled as a Medicaid provider, Exact will accept as payment in full the amounts
+                                    paid by the Medicaid program, plus any deductible, coinsurance or copayment which may be required by the Medicaid program to be paid by me.</p>
+                            </div>
+
+                            <div class="form-field-wrap mt-3 text-md-left text-left">
+                                <p class="date1 mt-2">
+                                    Date:<br>
+                                    <input class="input-group-append form-control" name="final_date1" value="{{dict1['form1']['final_date1']}}" type="text" />
                                 </p>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Does patient wish Exact Sciences to bill their insurance? :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select12-yes" name="pt_bill1" value="Yes" >
-                                            <label class="mb-2" for="select12-yes">Yes (complete below)</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select12-no" name="pt_bill1" value="No">
-                                            <label class="mb-2" for="select12-no">No (patient will self-pay)</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_bill1"]}}';
-                                    if (x == 'Yes'){
-                                        document.getElementById('select12-yes').checked = true;
-                                    }
-                                    else {
-                                        document.getElementById('select12-no').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Policyholder Name :</label>
-                                    <input class="input-group-append form-control" name="poly_name1" value="{{dict1['form1']['poly_name1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Policyholder DOB :</label>
-                                    <input class="input-group-append form-control" name="poly_dob1" value="{{dict1['form1']['poly_dob1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Relationship to patient :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select13-self" name="pt_relation1" value="Self">
-                                            <label class="mb-2" for="select13-self">Self</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select13-spouse" name="pt_relation1" value="Spouse">
-                                            <label class="mb-2" for="select13-spouse">Spouse</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select13-other" name="pt_relation1" value="Other">
-                                            <label class="mb-2" for="select13-other">Other</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["pt_relation1"]}}';
-                                    if (x == 'Self'){
-                                        document.getElementById('select13-self').checked = true;
-                                    }
-                                    else if (x == 'Spouse'){
-                                        document.getElementById('select13-spouse').checked = true;
-                                    }
-                                    else if (x == 'Other'){
-                                        document.getElementById('select13-other').checked = true;
-                                    }
-                                    else{
-                                        document.getElementById('select13-self').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Primary Insurance Carrier :</label>
-                                    <input class="input-group-append form-control" name="insurance_carrier1" value="{{dict1['form1']['insurance_carrier1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Type of Insurance :</label>
-                                    <div class="form-field-wrap">
-                                        <div class="input-group mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select14-private" name="insurance_type1" value="Private">
-                                            <label class="mb-2" for="select13-private">Private</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select14-medicare" name="insurance_type1" value="Medicare">
-                                            <label class="mb-2" for="select14-medicare">Medicare</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select14-medicareadvantage" name="insurance_type1" value="Medicare Advantage">
-                                            <label class="mb-2" for="select14-medicareadvantage">Medicare Advantage</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select14-medicaid" name="insurance_type1" value="Medicaid">
-                                            <label class="mb-2" for="select14-medicaid">Medicaid</label>
-                                        </div>
-                                        <div class="input-group-append mb-0 d-inline">
-                                            <input class="mr-1" type="radio" id="select14-tricare" name="insurance_type1" value="Tricare">
-                                            <label class="mb-2" for="select14-tricare">Tricare</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <script type="text/javascript">
-                                    var x = '{{dict1["form1"]["insurance_type1"]}}';
-                                    if (x == 'Private'){
-                                        document.getElementById('select14-private').checked = true;
-                                    }
-                                    else if (x == 'Medicare'){
-                                        document.getElementById('select14-medicare').checked = true;
-                                    }
-                                    else if (x == 'Medicare Advantage'){
-                                        document.getElementById('select14-medicareadvantage').checked = true;
-                                    }
-                                    else if (x == 'Medicaid'){
-                                        document.getElementById('select14-medicaid').checked = true;
-                                    }
-                                    else if (x == 'Tricare'){
-                                        document.getElementById('select14-tricare').checked = true;
-                                    }
-                                    else{
-                                        document.getElementById('select14-private').checked = true;
-                                    }
-                                </script>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Claims Submission Address :</label>
-                                    <input class="input-group-append form-control" name="claim_address1" value="{{dict1['form1']['claim_address1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Subscriber ID/Policy Number :</label>
-                                    <input class="input-group-append form-control" name="sub_id1" value="{{dict1['form1']['sub_id1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Group Number :</label>
-                                    <input class="input-group-append form-control" name="group_number1" value="{{dict1['form1']['group_number1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Plan :</label>
-                                    <input class="input-group-append form-control" name="plan1" value="{{dict1['form1']['plan1']}}" type="text" />
-                                </div>
-                                <div class="form-field-wrap input-group">
-                                    <label class="">Prior-Authentication Code (if available) :</label>
-                                    <input class="input-group-append form-control" name="auth_code1" value="{{dict1['form1']['auth_code1']}}" type="text" />
-                                </div>
+                            </div>
+                        </form>
+                        <!-- Form End -->
+                    </div>
+                    <!-- RIGHT SIDE FORM SECTION END -->
 
-                                <div class="form-field-wrap mt-4">
-                                    <h4 class="box-title">PATIENT AUTHORIZATIONS, ASSIGNMENT OF BENEFITS (AOB) & FINANCIAL RESPONSIBILITIES</h4>
-                                    <p>I authorize Exact Sciences Laboratories (Exact) to bill my insurance/health plan and furnish them with my Cologuard order information, test results, or other information requested for reimbursement. I assign all rights
-                                        and benefits under my insurance plans to Exact and authorize Exact to appeal and contest any reimbursement denial, including in any administrative or civil proceedings necessary to pursue reimbursement. I authorize
-                                        all reimbursements to be paid directly to the laboratory in consideration for services performed. I understand that I am responsible for any amount not paid, including amounts for non-covered services or services
-                                        determined by my plan to be provided by an out-of-network provider. I further understand that if I am a Medicaid enrollee in a state where Exact is enrolled as a Medicaid provider, Exact will accept as payment in
-                                        full the amounts paid by the Medicaid program, plus any deductible, coinsurance or copayment which may be required by the Medicaid program to be paid by me.</p>
-                                </div>
-
-                                <div class="form-field-wrap mt-3 text-md-left text-left">
-                                    <p class="date1 mt-2">
-                                        Date:<br>
-                                        <input class="input-group-append form-control" name="final_date1" value="{{dict1['form1']['final_date1']}}" type="text" />
-                                    </p>
-                                </div>
-                            </form>              
-                            <!-- Form End -->
-                        </div>
-                        <!-- RIGHT SIDE FORM SECTION END -->
-
-                        <!-- Last checkbox and submit button -->
-                        <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top: -35px; margin-left: 33.3%;">
-                            <input class="mr-1" form="part1" type="checkbox" id="esign" name="esign" value="Yes">
-                            <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
-                        </div>
-                        <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-right: 15px; margin-top: -50px; width: 200px; height: auto; font-size: 25px;" onclick="submitForms()">
-                        <!-- Last checkbox and submit button end -->
+                    <!-- Last checkbox and submit button -->
+                    <div class="input-group mb-0 d-inline" style="width: auto; margin:auto; margin-top: 10px; margin-left: 33.3%;">
+                        <input class="mr-1" form="part1" type="checkbox" id="esign" name="esign" value="Yes">
+                        <label class="mb-2" for="esign">Please mark right only if patient signature is on original hard form.(Optional)</label>
+                    </div>
+                    <input type="submit" name="Next" value="NEXT" class="btn btn-dark" style="margin-right: 15px; margin-top: 10px; width: 200px; height: auto; font-size: 25px;" onclick="submitForms()">
+                    <!-- Last checkbox and submit button end -->
 
                 </div>
             </div>
@@ -460,7 +445,7 @@
 
 <!-- External Javascript for form submission -->
 <script type="text/javascript">
-    submitForms = function(){
+    submitForms = function() {
         document.getElementById("part1").submit();
     }
 </script>
