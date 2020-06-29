@@ -21,12 +21,22 @@ def recognize(image):
 
     (x, y, w, h) = cg.getContour(image) # Generate Contour and return it's X & Y points.
     img1 = image[y:y+h,x:x+w]
-    imglist = roi.getROI(img1)  # Generate Images from contoured image.
+    imglist, r_img = roi.getROI(img1)  # Generate Images from contoured image.
     
     # Two dictionary for final store.
     data = dict()
     data2 = dict()
+
+    img = imglist[-1]
+    text = ocr.Document_Text_Recognize(img)
+    text = text.replace('\n', ' ')
+    text = replace.replaceText(text)
     
+    # If exact science symbol capture find new contour
+    if text.lower().count('exact') > 0:
+        img2 = r_img[103:1640, 17:]
+        imglist, r_img = roi.getROI(img2)
+
     # Procedure of following code,
     # 1. Taken each ROI,
     # 2. Detect characters for that ROI,
@@ -53,7 +63,7 @@ def recognize(image):
     text = ocr.Document_Text_Recognize(img)
     text = replace.replaceNum(text)
     text = text.ljust(10, '0')
-    data['pr_npi1'] = data2['pr_npi2'] = text
+    data['pr_npi1'] = data2['pr_npi2'] = text[0:10]
     #print(text)
 
     img = imglist[3]
@@ -75,13 +85,15 @@ def recognize(image):
     img = imglist[5]
     text = ocr.Text_Recognize(img)
     text = replace.replaceNum(text)
-    data['pr_phone1'] = text
+    text = text.ljust(10, '0')
+    data['pr_phone1'] = text[0:10]
     #print(text)
 
     img = imglist[6]
     text = ocr.Document_Text_Recognize(img)
     text = replace.replaceNum(text)
-    data['pr_fax1'] = data2['pt_fax2'] = text
+    text = text.ljust(12, '0')
+    data['pr_fax1'] = data2['pt_fax2'] = text[0:12]
     #print(text)
 
     img = imglist[7]

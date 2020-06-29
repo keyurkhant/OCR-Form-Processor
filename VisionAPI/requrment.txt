@@ -1,3 +1,0 @@
-pip install pdf2image
-pip install Flask-PyMongo
-pip install dnspython

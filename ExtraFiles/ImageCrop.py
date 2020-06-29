@@ -1,46 +1,32 @@
 import cv2 as cv
 import numpy as np
-from VisionAPI.OCR import OCR as ocr
+from VisionModule	import PDF2IMG as pi
+from VisionModule import recognize
+from VisionModule import OCR as ocr
+from VisionModule import ContourGenerator as cg
+from VisionModule import ROIGeneration as roi
+from VisionModule import removeNoise as rn  # Text processing 1
+from VisionModule import replace #  Text processing 2
 
-img = cv.imread('sampleform-1.jpg')
-img2 = cv.imread('sampleform-2.jpg')
+#pdf = open('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/sampleform-2-converted.pdf' ,'rb').read()
 
-#Provider Information Form 1
-imgCrop1 = img[270:860,60:850]
-#cv.imwrite("Crop1.png", imgCrop1)
+#image = pi.toImg(pdf)
 
-# Order Information Form 1
-imgCrop2 = img[270:860,840:1650] 
-#cv.imwrite("Crop2.png", imgCrop2)
+image = cv.imread('/root/Keyur Khant/Study/Others/OCR Hackathon/VisionAPI/sampleform-2.jpg')
 
-# Patient Demographic 1 Form 1
-imgCrop3 = img[910:1250,60:850]
-#cv.imwrite("Crop3.png", imgCrop3)
+(x, y, w, h) = cg.getContour(image) # Generate Contour and return it's X & Y points.
+img1 = image[y:y+h,x:x+w]
 
-# Patient Demographic 2 Form 1
-imgCrop4 = img[910:1250,840:1650]
-#cv.imwrite("Crop4.png", imgCrop4)
+imgList = roi.getSecondROI(img1)
 
-# Patient Ethinicity Form 1
-imgCrop5 = img[1250:1430,60:1650]
-#cv.imwrite("Crop5.png", imgCrop5)
+text = ocr.Text_Recognize(imgList[0])
+text = replace.replaceNum(text)
+print(text)
 
-# Patient Insurance Form 1
-imgCrop6 = img[1440:1820,60:1650]
-#cv.imwrite("Crop6.png", imgCrop6)
-
-# For lab use only Form 1
-imgCrop7 = img[2050:2150,1050:1650]
-#cv.imwrite("Crop7.png", imgCrop7)
-
-# Form 2 (Only One Region)
-imgCrop8 = img2[685:1800,90:1600]
-#cv.imwrite("Crop8.png", imgCrop8)
-
-kp = ocr.Text_Recognize(imgCrop8)
-
-print(kp)
+text = ocr.Text_Recognize(imgList[1])
+text = replace.handleDate(text)
+print(text)
 
 
-cv.waitKey(0)
-cv.destroyAllWindows()
+
+

@@ -168,9 +168,13 @@ def getROI(img):
 	imgCrop7 = img[1640:1687,1020:1343]
 	imgList.append(imgCrop7)	
 	
+	# Exact Science Lab symbol
+	imgCrop1 = img[0:100, 17:310]
+	imgList.append(imgCrop1)
+
 	# End of code
 
-	return imgList
+	return imgList , img
 
 
 def getSecondROI(img):

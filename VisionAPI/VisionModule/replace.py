@@ -7,6 +7,10 @@ import re
 str = '१4०8२3५४ऽ4'
 
 def detect(tokens, input):
+    '''
+    This function take arguments as tokens and input string
+    for text processing.
+    '''
     for i in input:
         for token in tokens:
             if i == 'Medicare' and token.startswith('MedicareAd'):
@@ -18,6 +22,10 @@ def detect(tokens, input):
 
 
 def replaceNum(str):
+    '''
+    This function takes string as arguments and
+    replace faulty prediction with correct one.
+    '''
     if str != None:
         str = str.replace('\n', '')
         str = str.replace(' ', '')
@@ -33,8 +41,10 @@ def replaceNum(str):
         str = str.replace('(', '1')
         str = str.replace(')', '1')
         str = str.replace('|', '1')
+        str = str.replace('I', '1')
         
         str = str.replace('२', '2')
+        str = str.replace('R', '2')
         
         str = str.replace('B', '3')
         
@@ -48,6 +58,8 @@ def replaceNum(str):
         str = str.replace('+', '7')
         str = str.replace('T', '7')
         str = str.replace('t', '7')
+        str = str.replace('F', '7')
+        str = str.replace('f', '7')
         
         str = str.replace('४', '8')
         
@@ -58,11 +70,13 @@ def replaceNum(str):
         str = str.replace('O', '0')
         str = str.replace('०', '0')
         str = str.replace('c', '0')  
-    #print(str)
-    #print(datetime.now() - time1)
+    
     return str
     
 def replaceRegEx(str):
+    '''
+    This function is same as replaceNum but use Regex for numbers.
+    '''
     time1 = datetime.now()
     str = re.sub('[\\/[]li()]', '1', str)
     
@@ -85,6 +99,9 @@ def replaceRegEx(str):
     print(datetime.now() - time1)
     
 def replaceText(str):
+    '''
+    This function is same as replaceNum but used for textual data
+    '''
     if str != None:
         str = str.replace(':', '')
         str = str.replace(';', '')
@@ -107,6 +124,9 @@ def replaceText(str):
     return str
 
 def handleDate(str):
+    '''
+    This function is same as replaceNum but handle date format.
+    '''
     if str != None:
         str.replace('\n', ' ')
         str = str.replace(':', '')
@@ -152,6 +172,9 @@ def handleDate(str):
     return str
 
 def handleRadio(str, type):
+    '''
+    This function is same as replaceNum but used for Radio Button handle.
+    '''
     str = str.replace(':', '')
     str = str.replace(';', '')
     str = str.replace('\'', '')
