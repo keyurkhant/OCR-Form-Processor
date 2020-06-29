@@ -1,21 +1,38 @@
+# Import required libraries and modules
 import cv2 as cv
 import numpy as np
-from VisionModule import OCR as ocr
-from VisionModule import ROIGeneration as roi
-from VisionModule import HoughTransfer as hg
-from VisionModule import ContourGenerator as cg
-from VisionModule import removeNoise as rn
-from VisionModule import replace
+from VisionModule import OCR as ocr  # Optical Character Recognition Module
+from VisionModule import ROIGeneration as roi  # Region of Interest Generation
+from VisionModule import ContourGenerator as cg  # Contour Generation
+from VisionModule import removeNoise as rn  # Text processing 1
+from VisionModule import replace #  Text processing 2
 
 
 def recognize(image):
-    (x, y, w, h) = cg.getContour(image)
-    img1 = image[y:y+h,x:x+w]
-    imglist = roi.getROI(img1)
+    '''
+    This function take an argument as image(numpy array).
     
+    This is core of whole process. It find contour of main image and
+    generate Region of Interest from image (required bounding boxes)
+    and apply ocr detection on it.
+
+    Detected values are return as dictionary (JSON Format).
+    '''
+
+    (x, y, w, h) = cg.getContour(image) # Generate Contour and return it's X & Y points.
+    img1 = image[y:y+h,x:x+w]
+    imglist = roi.getROI(img1)  # Generate Images from contoured image.
+    
+    # Two dictionary for final store.
     data = dict()
     data2 = dict()
     
+    # Procedure of following code,
+    # 1. Taken each ROI,
+    # 2. Detect characters for that ROI,
+    # 3. Process text which are recognized
+    # 4. Append in dictionary
+
     img = imglist[0]
     text = ocr.Document_Text_Recognize(img)
     text = text.replace('\n', ' ')
@@ -86,10 +103,9 @@ def recognize(image):
     #print(text)
 
     img = imglist[8]
-    text = ocr.Text_Recognize(img)
+    text = ocr.Document_Text_Recognize(img)
     text = replace.handleDate(text)
     data['order_date1'] = text
-    #print(text)
 
     img = imglist[9]
     text = ocr.Text_Recognize(img)
@@ -281,8 +297,12 @@ def recognize(image):
     data['final_date1'] = text
     #print(text)
 
-    #print("Done")
+    # End of Code
     
+    #----------------------------------------------------------
+    # TO check ,how each ROI is generate, uncomment this section.
+    # This portion is optional.
+
     #count = 1
     #for img in imglist:	
     #	text = ocr.Text_Recognize(img)
@@ -291,7 +311,9 @@ def recognize(image):
     #	file.write(text)
     #	file.close()
     #	count += 1
-     
-    final = {'form1': data , 'form2': data2}
+    
+    #----------------------------------------------------------
+
+    final = {'form1': data , 'form2': data2}    # Final Dictionary(JSON Format)
 
     return final

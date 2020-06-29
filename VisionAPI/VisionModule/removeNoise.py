@@ -1,15 +1,22 @@
+# Import required libraries and modules
 import cv2
 import numpy as np
-
 from datetime import datetime
 
-#removing bounding box takes lass time than removing lines
 
 def removeLine(img):
-    time1 = datetime.now()
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) 
-    edges = cv2.Canny(gray,50,150,apertureSize = 3) 
-         
+    '''
+    This function take an argument as image(numpy array)
+
+    Hough Line transform is technique to detect line 
+    (even if shortly broken) in computer vision.
+
+    It detect lines and remove it. (Here apply white color.) and return image(processed)
+    '''
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) # Convert image into grayscale
+    
+    # This both line detect lines in image
+    edges = cv2.Canny(gray,50,150,apertureSize = 3)      
     lines = cv2.HoughLines(edges,1,np.pi/180, 50) 
 
     for line in lines:
@@ -37,30 +44,33 @@ def removeLine(img):
             
             if (theta < 0.05 and theta > -0.05) or (theta > 1.56 and theta < 1.58):
                 cv2.line(img,(x1,y1), (x2,y2), (255,255,255),5)
-                #print(r, theta)    
-                #cv2.imshow('temp', img)
-                #cv2.waitKey(0)
-                #cv2.destroyAllWindows() 
-                
-    #print(datetime.now() - time1)
+                 
     return img
 
 
 def removeBox(img):
-    #time1 = datetime.now()
+    '''
+    This function take an argument as image(numpy array)
+
+    Contour finding method used for find contour(Rectangle box)
+    in image. It's time complexity is less that HoughLine Transform 
+ 
+    It detect all rectangle.
+    '''
     BLUR = 21
     CANNY_THRESH_1 = 10
     CANNY_THRESH_2 = 200
     MASK_DILATE_ITER = 10
     MASK_ERODE_ITER = 10
-    MASK_COLOR = (0.0,0.0,0.0) # In BGR format\
+    MASK_COLOR = (0.0,0.0,0.0) # In BGR format
 
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY) # Convert image into grayscale 
 
     edges = cv2.Canny(gray,CANNY_THRESH_1, CANNY_THRESH_2)
     edges = cv2.dilate(edges, None)
     edges = cv2.erode(edges, None)
 
+    # Detect contour using findContours method
     contour_info = []
     contours, hierarchy = cv2.findContours(edges, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -72,15 +82,6 @@ def removeBox(img):
         (x, y, w, h) = cv2.boundingRect(i[0])
         if i[2] < 2500:
             break
-        cv2.rectangle(img, (x,y), (x+w, y+h), (255, 255, 255), 5)
-        #print(w * h, i[2])
-        #cv2.imshow('image', img)
-        #cv2.waitKey(0)
-        #cv2.destroyAllWindows()
+        cv2.rectangle(img, (x,y), (x+w, y+h), (255, 255, 255), 5)   # It take all rectange and put white color.
         
-    #print(datetime.now() - time1)
     return img
-
-#img = cv2.imread('result/img3.jpg') 
-#removeLine(img)
-#removeBox(img)

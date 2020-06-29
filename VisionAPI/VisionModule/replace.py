@@ -1,7 +1,9 @@
+# Import libraries and modules
 import numpy as np
 from datetime import datetime
 import re
 
+# Global variable
 str = '१4०8२3५४ऽ4'
 
 def detect(tokens, input):
@@ -264,13 +266,4 @@ def handleRadio(str, type):
         return 'Private'
         
     return 'default'
-    
-#replaceStr(str)
-#replaceRegEx(str)
-    
-    
-    
-    
-    
-    
     

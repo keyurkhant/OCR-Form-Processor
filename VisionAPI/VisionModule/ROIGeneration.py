@@ -1,15 +1,22 @@
+# Import required libraries and modules
 import cv2 as cv
 import numpy as np
 from pdf2image import convert_from_bytes
 
 
 def getROI(img):
-	
-	#standard Pixel for this
+	'''
+	This function take an argument as image(numpy array)
+
+	Here, all ROI are defined manually.
+	Different ROI for different format of form.
+	'''
+	# Resize contoured image to this standard pixel.
 	img = cv.resize(img , (1443 , 1702))
 
-	cv.imwrite('output.jpg' , img)
-	imgList = []
+	imgList = []  # Image List
+
+	# Following code for manually defined ROI
 
 	# HCO Name
 	imgCrop1 = img[100:172,380:718]
@@ -38,9 +45,6 @@ def getROI(img):
 	# Provider Fax
 	imgCrop7 = img[490:560,263:718]
 	imgList.append(imgCrop7)
-
-
-
 
 #################################
 
@@ -164,5 +168,7 @@ def getROI(img):
 	imgCrop7 = img[1640:1687,1020:1343]
 	imgList.append(imgCrop7)	
 	
+	# End of code
+
 	return imgList
 
