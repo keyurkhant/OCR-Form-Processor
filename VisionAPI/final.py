@@ -94,7 +94,10 @@ def part2():
 		now = now.strftime("%d/%m/%Y %H:%M:%S")
 		formentry = {'formentry_time' : now} # Define time of updation.(Form entry Datatime)(Metadata)
 		# Final Dictionary. This is final output as JSON FILE.
-		final_dict = {"form1": form1_dict, "form2": form2_dict, "metadata": formentry}  
+		final_dict = {"form1": form1_dict, "form2": form2_dict, "metadata": formentry}
+		# Give output json file
+		with open('output.json', 'w') as outfile:
+			json.dump(final_dict, outfile)
 		id = mongo.db.form.insert_one(final_dict) # Add dictionary into database
 		# Remove temporary file(PDF + Images) from local storage.
 		os.remove('static/temp_storage/'+ filename)
