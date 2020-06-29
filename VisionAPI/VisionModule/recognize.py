@@ -317,3 +317,44 @@ def recognize(image):
     final = {'form1': data , 'form2': data2}    # Final Dictionary(JSON Format)
 
     return final
+
+def SecondRecognize(image):
+    '''
+    This function take an argument as image(numpy array).
+    
+    This is core of whole process. It find contour of main image and
+    generate Region of Interest from image (required bounding boxes)
+    and apply ocr detection on it.
+
+    Detected values are return as dictionary (JSON Format).
+    '''
+
+    (x, y, w, h) = cg.getContour(image) # Generate Contour and return it's X & Y points.
+    img1 = image[y:y+h,x:x+w]
+    imglist = roi.getSecondROI(img1)  # Generate Images from contoured image.
+    
+    # One dictionary for final store.
+    data = dict()
+    
+    # Procedure of following code,
+    # 1. Taken each ROI,
+    # 2. Detect characters for that ROI,
+    # 3. Process text which are recognized
+    # 4. Append in dictionary
+
+    img = imglist[0]
+    text = ocr.Text_Recognize(img)
+    text = text.replace('\n', ' ')
+    text = replace.replaceNum(text)
+    data['colo_number2'] = text
+    #print(text)
+
+    img = imglist[1]
+    text = ocr.Text_Recognize(img)
+    text = replace.handleDate(text)
+    data['es_date2'] = text
+    #print(text)
+
+    final = {'form2' : data}
+
+    return final

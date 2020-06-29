@@ -48,11 +48,16 @@ def home():
 # Here, request should be POST becuase of uploading.
 @app.route('/upload', methods = ["POST"])
 def upload_file():
-	global filename,data
+	global filename
+	global data
 	pdf = request.files['UploadDocument'] # Get pdf file from frontend
 	filename = pdf.filename
 	images = pi.toImg(pdf) # Convert PDF into Images and store it temporary
 	data = recognize.recognize(images[0]) # OCR Detection of first image of PDF
+	if(len(images) == 2):
+		data2 = recognize.SecondRecognize(images[1])
+		data['form2']['colo_number2'] = data2['form2']['colo_number2']
+		data['form2']['es_date2'] = data2['form2']['es_date2']
 	return render_template("second.html", dict1 = data, filename = filename)
 
 # Render template to first page of form.
@@ -60,7 +65,8 @@ def upload_file():
 def part1():
 	if request.method == "POST":
 		global data
-		global form1_dict,filename
+		global form1_dict
+		global filename
 		form1_dict = request.form.to_dict()	# Take whole data(Updated) from first HTML page and make directory.
 		race = request.form.getlist('pt_race1') # Take Checkbox List.(Checkbox list can't taken in above method.)
 		form1_dict['pt_race1'] = race

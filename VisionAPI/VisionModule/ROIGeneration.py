@@ -172,3 +172,27 @@ def getROI(img):
 
 	return imgList
 
+
+def getSecondROI(img):
+	'''
+	This function take an argument as image(numpy array)
+
+	Here, all ROI are defined manually.
+	Different ROI for different format of form.
+	'''
+	# Resize contoured image to this standard pixel.
+	img = cv.resize(img , (1429 , 1077))
+
+	imgList = []  # Image List
+
+	# Following code for manually defined ROI
+
+	# Cologuard Number
+	imgCrop1 = img[0:50,750:1400]
+	imgList.append(imgCrop1)
+
+	# ES date
+	imgCrop2 = img[45:90,750:1400] 
+	imgList.append(imgCrop2)
+
+	return imgList
