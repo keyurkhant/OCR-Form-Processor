@@ -13,7 +13,6 @@ def getROI(img):
 	'''
 	# Resize contoured image to this standard pixel.
 	img = cv.resize(img , (1443 , 1702))
-	cv.imwrite("image1.jpg",img)
 
 	imgList = []  # Image List
 
@@ -187,7 +186,6 @@ def getSecondROI(img):
 	'''
 	# Resize contoured image to this standard pixel.
 	img = cv.resize(img , (1429 , 1077))
-	cv.imwrite("image2.jpg",img)
 	imgList = []  # Image List
 
 	# Following code for manually defined ROI
