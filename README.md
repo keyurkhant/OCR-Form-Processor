@@ -37,4 +37,5 @@ In the era of digitalization, most of the things are done on digital devices and
 
    Reference: https://cloud.google.com/vision/docs/setup  
    
+   
 > Working Prototype Video - [Extracting Data From Fax Formatted Form Using OCR](https://www.youtube.com/watch?v=U1aXWvxhYAk)
