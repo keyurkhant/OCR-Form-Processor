@@ -31,7 +31,7 @@ In the era of digitalization, most of the things are done on digital devices and
 
    This VisionAPI gives 1000 API calls free each month and charges $1.5 after for each 1000 calls. 
 
-   Default configuration(Our Account) has $50 credit. Using it you can process around 950 forms.
+   Default configuration(Our Account) has (## $50) credit. Using it you can process around 950 forms.
 
    For Configuration of your own Cloud VisionAPI into the system.
 
@@ -39,4 +39,4 @@ In the era of digitalization, most of the things are done on digital devices and
    
 ## Working Prototype Video
    
-> Refer this - [Extracting Data From Fax Formatted Form Using OCR](https://www.youtube.com/watch?v=U1aXWvxhYAk)
+> Refer this Video - [Extracting Data From Fax Formatted Form Using OCR](https://www.youtube.com/watch?v=U1aXWvxhYAk)
