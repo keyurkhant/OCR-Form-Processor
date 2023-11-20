@@ -1,6 +1,6 @@
 # Extracting Data From Fax Formatted Form Using OCR
 
-## Objective:
+## Objective: 
 
 In the era of digitalization, most of the things are done on digital devices and platforms. But many areas where there is still manual work is used like form fillings of any individuals. There are technologies like Optical Character Recognition to convert image format into text but lack effectiveness, it doesn’t use. Here we try our best to make an effective product which used to take standard fax formatted form of patients and store it in a database for future use.
 
